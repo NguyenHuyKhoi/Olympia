@@ -9,8 +9,8 @@ import { GREEN, RED, SILVER, WHITE } from '../resource/palette';
 
 export default class ProgressBarComponent extends Component{
 
-    defineColor=(item)=>{
-        switch (item.state){
+    defineColor=(state)=>{
+        switch (state){
             case 'correct': return GREEN;
             case 'wrong'  : return RED;
             case 'current': return WHITE;
@@ -19,15 +19,16 @@ export default class ProgressBarComponent extends Component{
     }
 
     render(){
-        const questions=this.props.questions;
-        const width_item=320/(1.3*questions.length);
+        const states=this.props.question_states;
+       // console.log('states :',states);
+        const width_item=320/(1.3*states.length);
         return (
             <View style={{
                 width:320,height:5,flexDirection:'row',justifyContent: 'space-between',
-                marginTop:20
+                marginTop:5
             }}>
                 {
-                    questions.map((item,index)=>(
+                    states.map((item,index)=>(
                         <View 
                             key={''+index}
                             style={{width:width_item,height:5,

@@ -41,20 +41,21 @@ export default class AnswerComponent extends Component{
     }
 
     render(){
+       // console.log('answer :',this.props.answer)
         return (
             <TouchableOpacity 
-                onPress={()=>this.onPress()}
+                //onPress={()=>this.onPress()}
                 style={{
-                    width:320,height:50,backgroundColor:INDIGO_3,
+                    width:320,height:45,backgroundColor:INDIGO_3,
                     borderWidth: 1,
                     borderColor: this.defineColor(),
                     flexDirection:'row',
                     justifyContent: 'space-between',
-                    borderRadius:15,alignItems:'center',
-                    paddingHorizontal:20,paddingVertical:7,marginTop: 20}}>
+                    borderRadius:22,alignItems:'center',
+                    paddingHorizontal:20,paddingVertical:7,marginTop: 10}}>
                 <Text style={{fontSize:20,color:this.defineColor()}}>
                     {
-                        this.props.answer
+                        this.props.answer.content
                     }
                 </Text>
                 

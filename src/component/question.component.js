@@ -25,27 +25,28 @@ export default class QuestionComponent extends Component{
     }
 
     render(){
+        const metadata=this.props.metadata;
         const question=this.props.question;
-        const label=question.label!==undefined?question.label:'';
+        const label=metadata.category!==undefined?metadata.category:'';
         const content=question.content!==undefined?question.content:'';
         const image=question.image!==undefined?question.image:'';
-        const score=question.score!==undefined?question.score:'';
-        console.log('question :',question);
+        const score=metadata.score!==undefined?metadata.score:'';
+       // console.log('question :',question);
         return (
            
-            <View style={{width: 320,height:260,flexDirection:'column',backgroundColor:'#947523'}}>
+            <View style={{width: 320,height:250,flexDirection:'column',marginTop: 20}}>
                 {
                     label!==''?
-                    <Text style={{fontSize:17,fontStyle:'italic',color:SILVER}}>
+                    <Text style={{fontSize:15,fontStyle:'italic',color:SILVER}}>
                         {label}
                     </Text>
                     :
                     null
-                }
-                <View style={{flex:1,flexDirection:'column',alignItems:'center',marginTop: 15}}>
+                }  
+                <View style={{flex:1,flexDirection:'column',alignItems:'center'}}>
                     {
                         content!==''?
-                        <Text style={{fontSize: 20,color:SILVER}}>
+                        <Text style={{fontSize: 18,color:SILVER}}>
                             {content}
                         </Text>
                         :
@@ -55,7 +56,7 @@ export default class QuestionComponent extends Component{
                         image!==''?
                         <Image source={{
                             uri: image,
-                          }} style={{height:content!==''?180:200,width:content!==''?260:300,marginTop: 10}} 
+                          }} style={{height:content!==''?165:200,width:content!==''?240:300,marginTop: 10}} 
                         />
                         :
                         null

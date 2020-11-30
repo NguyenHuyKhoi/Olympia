@@ -50,10 +50,11 @@ export default class AnswersComponent extends Component{
     }
 
     render(){
+       // console.log('answers :',this.props.answers)
         return (
             <TouchableOpacity 
-                onPress={()=>this.onPress()}
-                style={{width:'100%',flexDirection:'column',alignItems:'center'}} >
+                onPress={this.props.onPress}
+                style={{width:'100%',flexDirection:'column',alignItems:'center',marginTop: 20}} >
 
                 <FlatList 
                     data={this.props.answers}
@@ -63,7 +64,7 @@ export default class AnswersComponent extends Component{
                     )}
                 />
 
-                <Text style={{fontSize:20,color:this.defineColor(),marginTop:20}}>
+                <Text style={{fontSize:18,color:this.defineColor(),fontStyle:'italic',marginTop:10}}>
                     {
                         this.defineResultText()
                     }

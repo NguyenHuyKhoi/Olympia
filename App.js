@@ -1,6 +1,11 @@
 import React,{Component} from 'react';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
+
+import {Provider} from 'react-redux'
+import store from './src/redux//store/'
+
 import SigninScreen from './src/screen/auth/signin.screen';
 import SignupScreen from './src/screen/auth/signup.screen';
 import HomeScreen from './src/screen/home.screen';
@@ -19,8 +24,9 @@ export default class App extends Component{
 	render(){
 		const stack=createStackNavigator();
 		return (
+			<Provider store={store}>
 			<NavigationContainer>
-				<stack.Navigator headerMode='none' initialRouteName='practice_round2'>
+				<stack.Navigator headerMode='none' initialRouteName='practice_home'>
 					<stack.Screen name='signin' component={SigninScreen}/>
 					<stack.Screen name='signup' component={SignupScreen}/>
 					<stack.Screen name='home' component={HomeScreen}/>
@@ -36,6 +42,7 @@ export default class App extends Component{
 					<stack.Screen name='setting_account' component={SettingAccountScreen}/>
 				</stack.Navigator>
 			</NavigationContainer>
+			</Provider>
 		)
 	}
 }

@@ -4,14 +4,24 @@ import {
     View,
     StyleSheet,
     Alert,
+    ActivityIndicator
 } from 'react-native';
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/practice.action'
+
 import ButtonComponent from '../../component/button.component';
 import FooterComponent from '../../component/footer.component';
 import HeaderComponent from '../../component/header.component';
 import { INDIGO_2,SILVER, INDIGO_3 } from '../../resource/palette';
 
-export default class PracticeHomeScreen extends Component{
+class PracticeHomeScreen extends Component{
 
+
+
+    onStartPractice=async ()=>{
+        await this.props.retrieveAllRounds();
+        this.props.navigation.navigate('practice_waiting')
+    }
 
     render(){
         return (
@@ -22,7 +32,7 @@ export default class PracticeHomeScreen extends Component{
                 <HeaderComponent/>
 
 				<ButtonComponent label='Vào luôn !' text_color={SILVER} background={INDIGO_2} 
-						onPress={()=>this.props.navigation.navigate('practice_waiting')}/>
+						onPress={this.onStartPractice}/>
                 <ButtonComponent label='Luật chơi' text_color={SILVER} background={INDIGO_2} 
 						onPress={()=>this.props.navigation.navigate('practice_rule')}/>
                 <ButtonComponent label='Lịch sử' text_color={SILVER} background={INDIGO_2} 
@@ -33,3 +43,12 @@ export default class PracticeHomeScreen extends Component{
         )
     }
 }
+
+const mapStateToProps = state => ({
+	practice: state.practice,
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(PracticeHomeScreen)

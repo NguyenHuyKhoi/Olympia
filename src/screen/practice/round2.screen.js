@@ -14,46 +14,6 @@ import HeaderComponent from '../../component/header.component';
 import ProgressBarComponent from '../../component/progress_bar.component';
 import QuestionComponent from '../../component/question.component';
 import { SILVER, INDIGO_3 } from '../../resource/palette';
-// const question={
-//     answers:[
-//         '4',
-//         '5',
-//         '7',
-//         '10'
-//     ]
-// }
-const question={
-    label:'Lịch sử',
-    content:'Ai là hoàng đế đầu tiên của nước ta',
-    image:'https://randomuser.me/api/portraits/men/86.jpg',
-    score:10
-}
-
-const round2={
-    keyword_question:{
-        answer:'mountain',
-        state:'remain'
-    },
-    questions:[
-        {
-            state:'correct',
-            answer:'himalaya'
-        },
-        {
-            state:'correct',
-            answer:'karate'
-        },
-        {
-            state:'correct',
-            answer:'89'
-        },
-        {
-            state:'current',
-            answer:'1999'
-        },
-    ]
-    
-}
 
 
 export default class PracticeRound2Screen extends Component{
