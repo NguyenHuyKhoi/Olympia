@@ -18,7 +18,9 @@ export default class InputTextComponent extends Component{
                     borderWidth: 1,borderColor: WHITE,
                     flexDirection:'row',
                     borderRadius:25,alignItems:'center',
-                    paddingHorizontal:15,paddingVertical:7,marginTop: 20}}>
+                    paddingHorizontal:15,
+                   // paddingVertical:7,
+                    marginTop: 20}}>
                 <Icon name={this.props.logo} size={30} color={WHITE} />
                 <TextInput 
                     placeholder={this.props.label} 
