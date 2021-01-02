@@ -30,7 +30,8 @@ export default practiceReducer=(state=initial_state,action)=>{
 
             if (cqi===total_question-1){
                 cqi=0;
-                cri++
+                cri=cri<3?cri+1:cri;
+                questions_state=['current'];
             }
             else {
                 cqi++;

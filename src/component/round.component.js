@@ -24,14 +24,20 @@ class RoundComponent extends Component{
 
         const {cri,cqi}=this.props.practice;
         this.props.answer(is_correct);
-        if (cqi===ROUNDS[cri].number_question-1) this.nextRound();
+        if (cqi===ROUNDS[cri].number_question-1) 
+            if (cri<3) this.nextRound()
+                else this.viewResult();
 
 
     }
 
     nextRound=()=>{
-        console.log('MoveNextRound')
+        console.log('MoveNextRound');
         this.props.navigation.navigate('practice_waiting')
+    }
+
+    viewResult=()=>{
+        this.props.navigation.navigate('practice_result')
     }
     render(){
 

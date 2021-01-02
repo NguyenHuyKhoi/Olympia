@@ -33,7 +33,12 @@ class PracticeWaitingScreen extends Component{
                 </Text>
 
 				<ButtonComponent label='Vào' text_color={SILVER} background={GREEN} 
-						onPress={()=>this.props.navigation.navigate('practice_round'+(round_index+1))}
+						onPress={()=>{
+                            if (round_index!==3)
+                                this.props.navigation.navigate('practice_round'+(round_index+1))
+                            else 
+                                this.props.navigation.navigate('practice_round4_setup')
+                        }}
                         margin_top={250}/>
                 
             </View>

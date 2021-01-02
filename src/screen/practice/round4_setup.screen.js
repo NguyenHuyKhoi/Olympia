@@ -121,7 +121,7 @@ export default class Round4SetupScreen extends Component{
                 </Text>
 
                 <ButtonComponent label='Vào' text_color={SILVER} background={GREEN} 
-						onPress={()=>this.props.navigation.navigate('practice_round1')}
+						onPress={()=>this.props.navigation.navigate('practice_round4')}
                         margin_top={30}/>
 
             </View>
