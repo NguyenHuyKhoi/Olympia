@@ -5,7 +5,7 @@ export const ROUNDS=[
     {
         index:1,
         name:'Khởi động',
-        number_question:2,//12
+        number_question:1,//12
         max_score:120,
         score:10,
         rule:'Trong vòng 1 phút, người chơi trả lời tối đa 12 câu hỏi: \n   + Thuộc 10 lĩnh vực: Toán, Lý, Hóa, Sinh, Văn, Sử, Địa, Thể thao, Nghệ thuật, Lĩnh vực khác, Tiếng Anh. \n  + Trả lời đúng được 10 điểm.\n  + Trả lời sai không bị trừ điểm.'

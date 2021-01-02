@@ -72,11 +72,11 @@ class RoundComponent extends Component{
                 </View>
                 <ProgressBarComponent states={questions_state} amount={questions_num}/>
 
-                <View style={{flex:5,marginTop:20,width:'100%',backgroundColor:'#235803'}}>
+                <View style={{flex:5,marginTop:20,width:'100%'}}>
                     <QuestionComponent question={question}/>
                 </View>
 
-                <View style={{flex:4,width:'100%',marginTop:10,backgroundColor:'#932755'}}>
+                <View style={{flex:4,width:'100%',marginTop:10}}>
                     {
                     cri!==1?
                     <AnswersOptionComponent answers={question.answers}  onAnswer={this.answer} />

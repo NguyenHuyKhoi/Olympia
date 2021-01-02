@@ -33,10 +33,6 @@ export default class AnswersInputComponent extends Component{
 		});
 	}
 
-    pressItem=(is_correct)=>{
-
-
-    }
 
     answer=()=>{
         let is_correct=this.state.answer.toLowerCase()===this.props.correct_answer.toLowerCase();
@@ -48,13 +44,11 @@ export default class AnswersInputComponent extends Component{
         },1000)
     }
     render(){
-        const {correct_answer}=this.props
-        
+        const {correct_answer   }=this.props
         return (
             <View 
                 style={{width:'100%',flex:1,flexDirection:'column',alignItems:'center',
-                    
-                    justifyContent:'center',backgroundColor:'#832559'}} >
+                    justifyContent:'center'}} >
 
                 <TextInput 
                     value={this.state.answer}
