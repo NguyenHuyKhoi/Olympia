@@ -12,14 +12,14 @@ import * as actions from '../../redux/action/practice.action'
 import ButtonComponent from '../../component/button.component';
 import FooterComponent from '../../component/footer.component';
 import HeaderComponent from '../../component/header.component';
-import { INDIGO_2,SILVER, INDIGO_3 } from '../../resource/palette';
+import { INDIGO_2,SILVER, INDIGO_3 } from '../../util/palette';
 
 class PracticeHomeScreen extends Component{
 
 
 
     onStartPractice=async ()=>{
-        await this.props.retrieveAllRounds();
+        await this.props.getPracticeRounds();
         this.props.navigation.navigate('practice_waiting')
     }
 

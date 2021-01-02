@@ -5,34 +5,38 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import { GREEN, RED, SILVER, WHITE } from '../resource/palette';
+import { GREEN, RED, SILVER, WHITE } from '../util/palette';
+import { initialArray } from '../util/helper';
 
 export default class ProgressBarComponent extends Component{
 
-    defineColor=(state)=>{
-        switch (state){
+    defineColor=(index,states)=>{
+
+        if (index>=states.length) return SILVER
+        switch (states[index]){
             case 'correct': return GREEN;
             case 'wrong'  : return RED;
             case 'current': return WHITE;
-            case 'remain' : return SILVER;
         }
     }
 
     render(){
-        const states=this.props.question_states;
+        const {states,amount}=this.props;
+
+        const arr=initialArray(amount,'remain');
        // console.log('states :',states);
-        const width_item=320/(1.3*states.length);
+        const width_item=320/(1.3*amount);
         return (
             <View style={{
                 width:320,height:5,flexDirection:'row',justifyContent: 'space-between',
                 marginTop:5
             }}>
                 {
-                    states.map((item,index)=>(
+                    arr.map((item,index)=>(
                         <View 
                             key={''+index}
                             style={{width:width_item,height:5,
-                            backgroundColor:this.defineColor(item)}}/>
+                            backgroundColor:this.defineColor(index,states)}}/>
                     ))
                 }
             </View>

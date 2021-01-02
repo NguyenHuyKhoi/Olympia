@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
-import { INDIGO_1, WHITE } from '../resource/palette';
+import { INDIGO_1, WHITE } from '../util/palette';
 
 export default class InputTextComponent extends Component{
     render(){

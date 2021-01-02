@@ -8,7 +8,7 @@ import {
 import ButtonComponent from '../../component/button.component';
 import FooterComponent from '../../component/footer.component';
 import HeaderComponent from '../../component/header.component';
-import { INDIGO_2,SILVER, INDIGO_3 } from '../../resource/palette';
+import { INDIGO_2,SILVER, INDIGO_3 } from '../../util/palette';
 
 export default class CompetitionHomeScreen extends Component{
 

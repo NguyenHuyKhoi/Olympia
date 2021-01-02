@@ -5,9 +5,9 @@ import {
     Image,
     View
 } from 'react-native';
-import { APP_NAME } from '../resource/const';
+import { APP_NAME } from '../util/constants';
 import { LOGO } from '../resource/image';
-import { SILVER } from '../resource/palette';
+import { SILVER } from '../util/palette';
 
 export default class HeaderComponent extends Component{
     render(){

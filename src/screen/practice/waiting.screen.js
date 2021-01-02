@@ -9,16 +9,16 @@ import {
 } from 'react-native';
 import ButtonComponent from '../../component/button.component';
 import { LOGO } from '../../resource/image';
-import { INDIGO_2,SILVER, INDIGO_3, GREEN } from '../../resource/palette';
+import { INDIGO_2,SILVER, INDIGO_3, GREEN } from '../../util/palette';
 
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/practice.action'
-import { ROUNDS } from '../../resource/const';
+import { ROUNDS } from '../../util/constants';
 
 class PracticeWaitingScreen extends Component{
 
     render(){
-        const round_index=this.props.practice.current_round_index;
+        const round_index=this.props.practice.cri;
         const round=ROUNDS[round_index]
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',

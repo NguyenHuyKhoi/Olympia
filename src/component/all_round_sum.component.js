@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
-import { GRAY, INDIGO_1, INDIGO_3, SILVER, WHITE } from '../resource/palette';
+import { GRAY, INDIGO_1, INDIGO_3, SILVER, WHITE } from '../util/palette';
 
 export default class AllRoundSumComponent extends Component{
     render(){

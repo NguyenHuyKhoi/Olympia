@@ -1,5 +1,5 @@
 export const practiceActions={
-    RETRIEVE_ALL_ROUNDS:'RETRIEVE_ALL_ROUNDS',
+    GET_PRACTICE_ROUNDS:'GET_PRACTICE_ROUNDS',
     ANSWER:'ANSWER'
 }
 

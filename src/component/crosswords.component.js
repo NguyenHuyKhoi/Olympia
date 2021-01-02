@@ -5,7 +5,7 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import { GREEN, RED, SILVER, WHITE } from '../resource/palette';
+import { GREEN, RED, SILVER, WHITE } from '../util/palette';
 
 
 class Word extends Component {

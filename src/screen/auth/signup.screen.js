@@ -11,9 +11,9 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ButtonComponent from '../../component/button.component';
 import InputTextComponent from '../../component/input_text.component';
-import { APP_NAME } from '../../resource/const';
+import { APP_NAME } from '../../util/constants';
 import { LOGO } from '../../resource/image';
-import { INDIGO_1, INDIGO_2, WHITE,GREEN } from '../../resource/palette';
+import { INDIGO_1, INDIGO_2, WHITE,GREEN } from '../../util/palette';
 
 export default class SignupScreen extends Component{
 

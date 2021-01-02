@@ -19,6 +19,8 @@ import PracticeResultScreen from './src/screen/practice/result.screen';
 import PracticeRound1Screen from './src/screen/practice/round1.screen';
 import PracticeRound4SetupScreen from './src/screen/practice/round4_setup.screen';
 import PracticeRound2Screen from './src/screen/practice/round2.screen';
+import PracticeRound3Screen from './src/screen/practice/round3.screen';
+import PracticeRound4Screen from './src/screen/practice/round4.screen';
 
 export default class App extends Component{
 	render(){
@@ -34,6 +36,8 @@ export default class App extends Component{
 					<stack.Screen name='practice_waiting' component={PracticeWaitingScreen}/>
 					<stack.Screen name='practice_round1' component={PracticeRound1Screen}/>
 					<stack.Screen name='practice_round2' component={PracticeRound2Screen}/>
+					<stack.Screen name='practice_round3' component={PracticeRound3Screen}/>
+					<stack.Screen name='practice_round4' component={PracticeRound4Screen}/>
 					<stack.Screen name='practice_round4_setup' component={PracticeRound4SetupScreen}/>
 					<stack.Screen name='practice_result' component={PracticeResultScreen}/>
 					<stack.Screen name='practice_rule' component={PracticeRuleScreen}/>

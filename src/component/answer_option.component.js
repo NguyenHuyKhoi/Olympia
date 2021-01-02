@@ -8,43 +8,48 @@ import {
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
-import { GREEN, INDIGO_3, RED, SILVER, WHITE } from '../resource/palette';
+import { GREEN, INDIGO_3, RED, SILVER, WHITE } from '../util/palette';
 
-export default class AnswerComponent extends Component{
+export default class AnswerOptionComponent extends Component{
+
     constructor(props){
         super(props);
         this.state={
-            state:'normal'
+            mode:'normal'
         }
     }
     
     defineColor=()=>{
-        switch(this.state.state){
+        switch(this.state.mode){
             case 'normal': return SILVER;
             case 'correct': return GREEN;
             case 'wrong': return RED;
         }
     }
 
+    refresh=()=>{
+
+        console.log('CallRefresh')
+        this.setState({
+            mode:'normal'
+        })
+    }
     onPress=()=>{
-        switch(this.state.state){
-            case 'normal': 
-                this.setState({state:'correct'});
-                break;
-            case 'correct': 
-                this.setState({state:'wrong'});
-                break;
-            case 'wrong': 
-                this.setState({state:'normal'});
-                break;
+        if (this.props.is_correct===true){
+            this.setState({mode:'correct'})
         }
+        else {
+            this.setState({mode:'wrong'})
+        }
+        this.props.onPress();
     }
 
     render(){
-       // console.log('answer :',this.props.answer)
+        const {answer,is_correct}=this.props
+        const mode=this.state.mode
         return (
             <TouchableOpacity 
-                //onPress={()=>this.onPress()}
+                onPress={this.onPress}
                 style={{
                     width:320,height:45,backgroundColor:INDIGO_3,
                     borderWidth: 1,
@@ -54,25 +59,22 @@ export default class AnswerComponent extends Component{
                     borderRadius:22,alignItems:'center',
                     paddingHorizontal:20,paddingVertical:7,marginTop: 10}}>
                 <Text style={{fontSize:20,color:this.defineColor()}}>
-                    {
-                        this.props.answer.content
-                    }
+                    {answer}
                 </Text>
                 
                 <View style={{width:30,height:30,borderRadius:15,borderWidth:1,
                     borderColor:this.defineColor(),
-                    backgroundColor:this.state.state!=='normal'?this.defineColor():INDIGO_3,
+                    backgroundColor:mode!=='normal'?this.defineColor():INDIGO_3,
                     justifyContent: 'center',alignItems:'center'}}>
-                    {
-                        this.state.state!=='normal'?
+
                         <Text style={{fontSize:17,color:SILVER}}>
                             {
-                                this.state.state==='correct'?'v':'x'
+                                mode==='normal'?
+                                    ''
+                                    :mode==='correct'?'v':'x'
                             }
                         </Text>
-                        :
-                        null
-                    }
+
                 </View>
             </TouchableOpacity>
         )

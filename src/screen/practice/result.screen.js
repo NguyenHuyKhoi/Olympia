@@ -11,9 +11,9 @@ import {
 import AllRoundSumComponent from '../../component/all_round_sum.component';
 import ButtonComponent from '../../component/button.component';
 import RoundScoreComponent from '../../component/round_score.component';
-import { ROUNDS } from '../../resource/const';
+import { ROUNDS } from '../../util/constants';
 import { LOGO } from '../../resource/image';
-import { INDIGO_2,SILVER, INDIGO_3, GREEN, WHITE } from '../../resource/palette';
+import { INDIGO_2,SILVER, INDIGO_3, GREEN, WHITE } from '../../util/palette';
 const result={
     rounds:[80,80,-1,-1],
     score:240

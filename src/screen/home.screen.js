@@ -12,9 +12,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ButtonComponent from '../component/button.component';
 import FooterComponent from '../component/footer.component';
 import HeaderComponent from '../component/header.component';
-import { APP_NAME } from '../resource/const';
+import { APP_NAME } from '../util/constants';
 import { LOGO } from '../resource/image';
-import { INDIGO_1, INDIGO_2, WHITE,GREEN,SILVER, INDIGO_3 } from '../resource/palette';
+import { INDIGO_1, INDIGO_2, WHITE,GREEN,SILVER, INDIGO_3 } from '../util/palette';
 
 export default class HomeScreen extends Component{
 

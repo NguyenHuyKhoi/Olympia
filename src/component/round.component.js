@@ -6,93 +6,85 @@ import {
     TextInput,
     View
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import  Icon  from 'react-native-vector-icons/MaterialIcons';
-import { GREEN, INDIGO_3, RED, SILVER, WHITE } from '../resource/palette';
-import AnswerComponent from './answer.component';
+import { GREEN, INDIGO_3, RED, SILVER, WHITE } from '../util/palette';
 import ProgressBarComponent from './progress_bar.component';
 import QuestionComponent from './question.component';
 
 import {connect }from 'react-redux'
 import * as actions from '../redux/action/practice.action'
-import AnswersComponent from './answers.component';
-
+import { ROUNDS } from '../util/constants';
+import AnswersOptionComponent from './answers_option.component';
+import AnswerInputComponent from './answers_input.component'
 class RoundComponent extends Component{
     
-    filterState=()=>{
-        const ri=this.props.practice.current_round_index
-        const qi=this.props.practice.current_question_index;
-        const round=this.props.practice.rounds[ri];
 
 
-        let arr;
-        if (ri===1){
-            arr=round.questions.map(e=>e.state);
-        }
-        else {
-            arr=round.map(e=>e.question.state);
-        }
+    answer=(is_correct)=>{
+        console.log('RoundComponent answer',is_correct);
 
-        return arr;
+        const {cri,cqi}=this.props.practice;
+        this.props.answer(is_correct);
+        if (cqi===ROUNDS[cri].number_question-1) this.nextRound();
+
+
     }
 
-    answer=()=>{
-        console.log('answer question',this.props.practice.current_question_index)
-        this.props.answer(0)
-        
+    nextRound=()=>{
+        console.log('MoveNextRound')
+        this.props.navigation.navigate('practice_waiting')
     }
-
     render(){
 
-        
+        console.log('RoundData :',this.props.practice)
+        const {cri,cqi,rounds,questions_state}=this.props.practice
 
-        // console.log('answer :',this.props.answer)
-        const ri=this.props.practice.current_round_index
-        const qi=this.props.practice.current_question_index;
-
-        if (ri!==this.props.initial_round) {
-            this.props.nextRound();
-        }
-        console.log('ri :',ri);
-        console.log('qi :',qi);
-        
-        console.log('rounds :',this.props.practice.rounds);
        
-        const round=this.props.practice.rounds[ri]; 
+        const round=rounds[cri]; 
+        let question={};
+        let questions_num=ROUNDS[cri].number_question
 
-        let total_question;
-        let question;
-        let metadata;
-        if (ri===1){
-            console.log('round 2:',round)
-            total_question=round.questions.length;
-            question=round.questions[qi];
-            metadata={};
+        if (cri===1){
+            console.log('reach_here',cri,cqi,round,rounds);
+            question=round.questions[cqi];
         }
         else {
-            total_question=round.length;
-            question=round[qi].question;
-            metadata=round[qi].metadata;
+            question=round[cqi]
+        };
 
-            console.log('question in round :',question);
-        }
+        console.log('RoundComponent question :',question)
+
         return (
             <View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
                 alignItems:'center',padding:10}}>
          
 
+                
                 <View style={{width:320,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                     <Text style={{fontSize: 22,color:SILVER}}>
-                        {'Câu '+(qi+1)+'/'+(total_question)}
+                        {'Câu '+(cqi+1)+'/'+(questions_num)}
                     </Text>
 
                     <Text style={{fontSize: 22,color:SILVER}}>
                         {'32s'}
                     </Text>
                 </View>
-                <ProgressBarComponent question_states={this.filterState()}/>
-                <QuestionComponent question={question} metadata={metadata} />
-                <AnswersComponent answers={question.answers}  onPress={this.answer}/>
+                <ProgressBarComponent states={questions_state} amount={questions_num}/>
+
+                <View style={{flex:5,marginTop:20,width:'100%',backgroundColor:'#235803'}}>
+                    <QuestionComponent question={question}/>
+                </View>
+
+                <View style={{flex:4,width:'100%',marginTop:10,backgroundColor:'#932755'}}>
+                    {
+                    cri!==1?
+                    <AnswersOptionComponent answers={question.answers}  onAnswer={this.answer} />
+                    :
+                    <AnswerInputComponent correct_answer={question.answer} onAnswer={this.answer}/>
+                    }
+                </View>
+              
+               
+               
             </View>
         )
     }

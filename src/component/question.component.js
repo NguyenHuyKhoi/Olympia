@@ -6,7 +6,7 @@ import {
     StyleSheet,
     Image
 } from 'react-native';
-import { GREEN, RED, SILVER, WHITE } from '../resource/palette';
+import { GREEN, RED, SILVER, WHITE } from '../util/palette';
 
 // quesion ={
 //     label ,question, image,score ;
@@ -15,37 +15,26 @@ import { GREEN, RED, SILVER, WHITE } from '../resource/palette';
 
 export default class QuestionComponent extends Component{
 
-    defineColor=(item)=>{
-        switch (item.state){
-            case 'correct': return GREEN;
-            case 'wrong'  : return RED;
-            case 'current': return WHITE;
-            case 'remain' : return SILVER;
-        }
-    }
 
     render(){
-        const metadata=this.props.metadata;
-        const question=this.props.question;
-        const label=metadata.category!==undefined?metadata.category:'';
-        const content=question.content!==undefined?question.content:'';
-        const image=question.image!==undefined?question.image:'';
-        const score=metadata.score!==undefined?metadata.score:'';
-       // console.log('question :',question);
+      
+
+        const {category,content,answers,image,video}=this.props.question
+        console.log('QuestionComponent',category,content)
         return (
            
-            <View style={{width: 320,height:250,flexDirection:'column',marginTop: 20}}>
+            <View style={{width: '100%',height:'100%',flexDirection:'column'}}>
                 {
-                    label!==''?
+                    category!==undefined?
                     <Text style={{fontSize:15,fontStyle:'italic',color:SILVER}}>
-                        {label}
+                        {category}
                     </Text>
                     :
                     null
                 }  
                 <View style={{flex:1,flexDirection:'column',alignItems:'center'}}>
                     {
-                        content!==''?
+                        content!==undefined?
                         <Text style={{fontSize: 18,color:SILVER}}>
                             {content}
                         </Text>
@@ -53,7 +42,7 @@ export default class QuestionComponent extends Component{
                         null
                     }
                     {
-                        image!==''?
+                        image!==undefined?
                         <Image source={{
                             uri: image,
                           }} style={{height:content!==''?165:200,width:content!==''?240:300,marginTop: 10}} 

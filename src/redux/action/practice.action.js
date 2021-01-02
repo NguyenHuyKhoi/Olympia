@@ -1,30 +1,33 @@
-import firebaseHelper from '../../util/firebase.helper'
+
+import { INITIAL_ROUND } from '../../util/constants'
+import firebase from '../../util/firebase'
 import {practiceActions} from '../action_constant'
 
-export const retrieveAllRounds=()=>{
-  //  console.log('called action : retrieveAllRounds')
+export const getPracticeRounds=()=>{
+      console.log('called action : getPracticeRounds')
 
     return async (dispatch)=>{
-        let rounds=await firebaseHelper.retrieveAllRounds();
-        let round1=rounds[0];
-        round1[0].question.state='current';
+        let rounds=await firebase.getPracticeRounds();
+
         let e={
-            rounds:rounds,
-            current_round_index:0,
-            current_question_index:0
-        }
+            rounds,
+            cri:INITIAL_ROUND,
+            cqi:0,
+            questions_state:['current']
+        };
+
         dispatch({
-            type:practiceActions.RETRIEVE_ALL_ROUNDS,
+            type:practiceActions.GET_PRACTICE_ROUNDS,
             payload:e
         })
     }
 
 }
 
-export const answer=(answer_index)=>{
-    console.log('choose option :',answer_index);
+export const answer=(is_correct)=>{
+    console.log('choose option :',is_correct);
     return {
         type:practiceActions.ANSWER,
-        payload:answer_index
+        payload:{is_correct}
     }
 }

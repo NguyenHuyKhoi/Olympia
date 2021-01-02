@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { SILVER } from '../resource/palette';
+import { SILVER } from '../util/palette';
 
 export default class FooterComponent extends Component{
     render(){

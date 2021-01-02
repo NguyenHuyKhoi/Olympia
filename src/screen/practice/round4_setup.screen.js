@@ -24,7 +24,7 @@ const levels=[
         time:20
     },
 ]
-import { SILVER, INDIGO_3, GRAY, GREEN, INDIGO_2, WHITE } from '../../resource/palette';
+import { SILVER, INDIGO_3, GRAY, GREEN, INDIGO_2, WHITE } from '../../util/palette';
 class ScoreLevel extends Component {
     render(){
         return (

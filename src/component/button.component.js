@@ -5,22 +5,27 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native';
+import { GREEN, WHITE } from '../util/palette';
 
 export default class ButtonComponent extends Component{
     render(){
+        let {width,background,label,margin_top,text_color}=this.props;
+        if (width===undefined) width=320
+        if (background===undefined) background=GREEN;
+        if (margin_top===undefined) margin_top=20;
+        if (label===undefined) label='Gửi'
+        if (text_color===undefined) text_color=WHITE
         return (
             <TouchableOpacity 
                 style={{
-                    width:320,height:50,backgroundColor:this.props.background,
+                    width:width,height:50,backgroundColor:background,
                     borderRadius:25,justifyContent:'center',alignItems:'center',
-                    marginTop:this.props.margin_top!==undefined?this.props.margin_top:20
+                    marginTop:margin_top
                 }}
                 onPress={this.props.onPress}
                 >
-                <Text style={{fontSize:20,color:this.props.text_color}}>
-                    {
-                        this.props.label
-                    }
+                <Text style={{fontSize:20,color:text_color}}>
+                    {label}
                 </Text>
             </TouchableOpacity>
         )
