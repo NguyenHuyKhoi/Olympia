@@ -29,7 +29,6 @@ export default class AnswerOptionComponent extends Component{
 
     refresh=()=>{
 
-        console.log('CallRefresh')
         this.setState({
             mode:'normal'
         })

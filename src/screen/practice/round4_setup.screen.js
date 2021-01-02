@@ -10,20 +10,14 @@ import {
 } from 'react-native';
 import ButtonComponent from '../../component/button.component';
 import { STAR1, STAR2 } from '../../resource/image';
-const levels=[
-    {
-        score:10,
-        time:10
-    },
-    {
-        score:20,
-        time:15
-    },
-    {
-        score:30,
-        time:20
-    },
-]
+
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/practice.action'
+
+import {ROUNDS} from '../../util/constants'
+
+const levels=ROUNDS[3].levels
+
 import { SILVER, INDIGO_3, GRAY, GREEN, INDIGO_2, WHITE } from '../../util/palette';
 class ScoreLevel extends Component {
     render(){
@@ -48,7 +42,7 @@ class QuestionPackage extends Component{
         super(props);
         this.state={
             is_picked_star:false ,
-            level:levels[0]
+            level:this.props.default_level
         }
     }
 
@@ -61,14 +55,16 @@ class QuestionPackage extends Component{
     }
 
     pickLevel=(level)=>{
-        Alert.alert('hello')
+        this.props.pickLevel(level,this.state.level) //after level and before level
         this.setState({
             ...this.state,
             level:level
-        })
+        });
     }
       
     render(){
+
+        const {index}=this.props.index;
         return (
             <View style={{width:'100%',flexDirection:'column',alignItems:'center'}}>
                 <Text style={{fontSize:25,color:SILVER,marginTop: 25}}>
@@ -89,9 +85,9 @@ class QuestionPackage extends Component{
                         levels.map((item,index)=>(
                             <ScoreLevel 
                                 key={''+index}
-                                is_picked={this.state.level.score===item.score}
+                                is_picked={this.state.level===index}
                                 score={item.score} 
-                                onChoose={()=>this.pickLevel(item)}/>
+                                onChoose={()=>this.pickLevel(index)}/>
                         ))
                     } 
                 </View>
@@ -100,10 +96,44 @@ class QuestionPackage extends Component{
         )
     }
 }
-export default class Round4SetupScreen extends Component{
 
+class Round4SetupScreen extends Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            arr:[1,1,1],
+            total_score:60
+        }
+    }
+
+    
+    
+    pickLevel=(l2,l1)=>{
+
+      
+        let {arr,total_score}=this.state;
+        arr[l2]++;
+        arr[l1]--;
+        total_score=total_score-levels[l1].score+levels[l2].score;
+
+        this.setState({
+            arr,
+            total_score
+        });
+    }
+
+    enterRound4=()=>{
+        this.props.chooseRound4Questions(this.state.arr);
+
+        setTimeout(()=>{
+            this.props.navigation.navigate('practice_round4');
+        },1000)
+
+    }
 
     render(){
+        const {total_score}=this.state;
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
                 alignItems:'center',padding:20}}>
@@ -112,19 +142,34 @@ export default class Round4SetupScreen extends Component{
                     CHỌN GÓI CÂU HỎI
                 </Text>
 
-                <QuestionPackage index={1}/>
-                <QuestionPackage index={2}/>
-                <QuestionPackage index={3}/>
+                {
+                    [1,2,3].map((item,index)=>
+                        <QuestionPackage 
+                            index={index+1} 
+                            pickLevel={this.pickLevel}
+                            default_level={index}
+                        />
+                    )
+                }
 
                 <Text style={{fontSize:25,color:SILVER,marginTop: 20}}>
-                    {'Tổng : 80'}
+                    {'Tổng : '+total_score}
                 </Text>
 
                 <ButtonComponent label='Vào' text_color={SILVER} background={GREEN} 
-						onPress={()=>this.props.navigation.navigate('practice_round4')}
+						onPress={this.enterRound4}
                         margin_top={30}/>
 
             </View>
         )
     }
 }
+
+const mapStateToProps = state => ({
+	practice: state.practice,
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(Round4SetupScreen)

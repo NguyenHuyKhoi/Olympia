@@ -26,7 +26,6 @@ export default class AnswersOptionComponent extends Component{
 
     }
     render(){
-       // console.log('answers :',this.props.answers)
 
         let {answers,question_index}=this.props;
         let correct_answer=answers[0];

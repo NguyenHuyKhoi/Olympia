@@ -52,7 +52,6 @@ class FirebaseHelper{
         }
         )
 
-        console.log('firebase getRound1 :',res)
 
         return res;
        
@@ -62,7 +61,6 @@ class FirebaseHelper{
         let round2s=await this.get('/data_bank/round2');
         let res=randomItem(round2s);
 
-        console.log('firebase getRound2 :',res)
         return res;
     }
 
@@ -76,7 +74,6 @@ class FirebaseHelper{
             }
         }
         )
-        console.log('firebase getRound3 :',res)
         return res;
     }
 
@@ -96,7 +93,6 @@ class FirebaseHelper{
             }
         }
         );
-        console.log('firebase getRound4 :',res)
         return res;
     }
     
@@ -110,7 +106,6 @@ class FirebaseHelper{
         let round4=await this.getRound4([1,1,1]);
 
         let rounds=[round1,round2,round3,round4]
-        console.log('firebase on getPracticeRounds end :',rounds)
         return rounds
     }
 }

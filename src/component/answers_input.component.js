@@ -48,10 +48,8 @@ export default class AnswersInputComponent extends Component{
         },1000)
     }
     render(){
-       // console.log('answers :',this.props.answers)
         const {correct_answer}=this.props
         
-        console.log('AnswerInputComponent :',correct_answer)
         return (
             <View 
                 style={{width:'100%',flex:1,flexDirection:'column',alignItems:'center',

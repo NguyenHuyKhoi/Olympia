@@ -1,4 +1,4 @@
-import { ROUNDS } from '../../util/constants'
+import { INITIAL_ROUND, ROUNDS } from '../../util/constants'
 import firebase from '../../util/firebase'
 import {practiceActions} from '../action_constant'
 
@@ -11,16 +11,19 @@ const initial_state={}
 // questions_state : state of questions on current round ( on ['none','current','wrong','correct'])
 export default practiceReducer=(state=initial_state,action)=>{
     let payload=action.payload
+    let {cri,cqi,rounds,questions_state}=state;
     switch (action.type){
         case practiceActions.GET_PRACTICE_ROUNDS:   
-            console.log('PracticeReducer  GET_PRACTICE_ROUNDS:',payload);
             return {
                 ...state,
-                ...payload
+                ...payload,
+                cri:INITIAL_ROUND,
+                cqi:0,
+                questions_state:['current']
             }
 
         case practiceActions.ANSWER:
-            let {cri,cqi,rounds,questions_state}=state;
+         
 
             questions_state[questions_state.length-1]=payload.is_correct?'correct':'wrong';
             questions_state.push('current');
@@ -41,7 +44,17 @@ export default practiceReducer=(state=initial_state,action)=>{
                 cri,
                 cqi,
                 questions_state
-            }
+        }
+
+        case practiceActions.CHOOSE_ROUND4_QUESTIONS:
+            rounds[3]=payload.round4;
+
+            console.log('practiceReducer round4:',payload.round4)
+            return {
+                ...state,
+                rounds
+            };
+
         default:
             return state
     }

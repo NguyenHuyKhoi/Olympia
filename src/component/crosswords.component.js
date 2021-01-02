@@ -10,7 +10,6 @@ import { GREEN, RED, SILVER, WHITE } from '../util/palette';
 
 class Word extends Component {
     defineColor=(item)=>{
-        console.log(item.state)
         switch (item.state){
             case 'correct': return GREEN;
             case 'wrong': return RED;

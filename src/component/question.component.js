@@ -20,7 +20,6 @@ export default class QuestionComponent extends Component{
       
 
         const {category,content,answers,image,video}=this.props.question
-        console.log('QuestionComponent',category,content)
         return (
            
             <View style={{width: '100%',height:'100%',flexDirection:'column'}}>

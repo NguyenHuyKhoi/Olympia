@@ -31,7 +31,20 @@ export const ROUNDS=[
         name:'Về đích',
         number_question:1,//3
         max_score:120,
-        scores:[10,20,30],
+        levels:[
+            {
+                score:10,
+                time:10
+            },
+            {
+                score:20,
+                time:15
+            },
+            {
+                score:30,
+                time:20
+            }
+        ],
         rule:'Có 3 câu hỏi ,người chơi chọn mức điểm cho từng câu hỏi:  \n    + 10 đ : 10s trả lời  \n    + 20 đ : 15s trả lời  \n    + 30 đ : 20s trả lời \n\nTrả lời sai không bị trừ điểm.  \n\nĐặc biệt, người chơi được đặt ngôi sao hy vọng ở 1 câu bất kỳ: \n    +Trả lời đúng được gấp đôi số điểm\n    +Trả lời sai bị trừ đi số điểm của câu hỏi.'
     }
 ]

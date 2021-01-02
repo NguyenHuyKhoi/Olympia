@@ -20,7 +20,6 @@ class RoundComponent extends Component{
 
 
     answer=(is_correct)=>{
-        console.log('RoundComponent answer',is_correct);
 
         const {cri,cqi}=this.props.practice;
         this.props.answer(is_correct);
@@ -32,7 +31,6 @@ class RoundComponent extends Component{
     }
 
     nextRound=()=>{
-        console.log('MoveNextRound');
         this.props.navigation.navigate('practice_waiting')
     }
 
@@ -41,7 +39,6 @@ class RoundComponent extends Component{
     }
     render(){
 
-        console.log('RoundData :',this.props.practice)
         const {cri,cqi,rounds,questions_state}=this.props.practice
 
        
@@ -50,7 +47,6 @@ class RoundComponent extends Component{
         let questions_num=ROUNDS[cri].number_question
 
         if (cri===1){
-            console.log('reach_here',cri,cqi,round,rounds);
             question=round.questions[cqi];
         }
         else {
