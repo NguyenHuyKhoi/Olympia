@@ -18,8 +18,10 @@ import { ROUNDS } from '../../util/constants';
 class PracticeWaitingScreen extends Component{
 
     render(){
-        const round_index=this.props.practice.cri;
-        const round=ROUNDS[round_index]
+        const {cri,questions_state}=this.props.practice;
+        const round=ROUNDS[cri]
+
+        console.log('Waiting Screen :cri,questions_state:',cri,questions_state)
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
                 alignItems:'center',padding:20}}>
@@ -34,8 +36,8 @@ class PracticeWaitingScreen extends Component{
 
 				<ButtonComponent label='Vào' text_color={SILVER} background={GREEN} 
 						onPress={()=>{
-                            if (round_index!==3)
-                                this.props.navigation.navigate('practice_round'+(round_index+1))
+                            if (cri!==3)
+                                this.props.navigation.navigate('practice_round'+(cri+1))
                             else 
                                 this.props.navigation.navigate('practice_round4_setup')
                         }}

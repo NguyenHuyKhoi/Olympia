@@ -14,59 +14,47 @@ import RoundScoreComponent from '../../component/round_score.component';
 import { ROUNDS } from '../../util/constants';
 import { LOGO } from '../../resource/image';
 import { INDIGO_2,SILVER, INDIGO_3, GREEN, WHITE } from '../../util/palette';
-const result={
-    rounds:[80,80,-1,-1],
-    score:240
-}
 
-class ResultItem extends Component{
-    render(){
-        const result=this.props.result;
-        return (
-            <View style={{width:320,marginHorizontal:20,marginTop:30,flexDirection:'column',alignItems:'center'}}>
-                {
-                    result.time!==undefined?
-                    <Text style={{fontSize:18,color:SILVER}}>
-                        {
-                            result.time
-                        }
-                    </Text>
-                    :
-                    null
-                }
 
-                <AllRoundSumComponent score={result.score}/>
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/practice.action'
+import { convertFullDateToHour } from '../../util/helper';
+import ResultComponent from '../../component/result.component';
 
-                <FlatList 
-                    data={result.rounds}
-                    keyExtractor={(item,index)=>''+index}
-                    renderItem={({item,index})=>(
-                        <RoundScoreComponent round={ROUNDS[index]} score={item}/>
-                    )}
-                />
-            </View>
-        )
-    }
-}
-export default class PracticeResultScreen extends Component{
+
+class PracticeResultScreen extends Component{
 
 
     render(){
+        const {scores,is_finished}=this.props.practice
+        const time=convertFullDateToHour((new Date()).toISOString())
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
                 alignItems:'center'}}>
 
-                <Text style={{fontSize:25,color:SILVER,fontWeight:'bold',marginTop: 40}}>
+                <Text style={{fontSize:25,color:SILVER,fontWeight:'bold',marginTop: 20}}>
                     KẾT QUẢ
                 </Text>
                 
-                <ResultItem result={result}/>
+                <ResultComponent scores={scores} time={time}/>
 
                 <ButtonComponent label='TIẾP' text_color={WHITE} background={GREEN} 
-                    onPress={()=>this.props.navigation.navigate('home')}
+                    onPress={()=>{
+                        if (is_finished) this.props.navigation.navigate('practice_home')
+                        else this.props.navigation.navigate('practice_waiting')
+                    }}
                     margin_top={120}/>
                 
             </View>
         )
     }
 }
+
+const mapStateToProps = state => ({
+	practice: state.practice,
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(PracticeResultScreen)

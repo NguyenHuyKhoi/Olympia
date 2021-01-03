@@ -23,7 +23,7 @@ class PracticeRound2Screen extends Component{
 
         let round2=rounds[1]
 
-        console.log('Round2 round2 :',round2)
+        console.log('Round2 round2 :',questions_state)
         return (
             <View style={{flex:1}}>
 
@@ -34,18 +34,24 @@ class PracticeRound2Screen extends Component{
                 <CrosswordsModal 
                     keyword={round2.keyword.answer.replace(' ','').toUpperCase()}
                     answers={round2.questions.map(item=>item.answer.replace(' ','').toUpperCase())} 
-                    states={questions_state}
-                    ref={ref=>this.crosswordModal=ref}
-                    />
+                    states={[...questions_state]}
+                    ref={ref=>this.crosswordModal=ref}/>
                 <Icon 
-                    onPress={()=>this.hintModal.open()}
+                    onPress={()=>{
+                        this.hintModal.open();
+                        this.crosswordModal.close();
+                    
+                    } }
                     name="insert-photo"
                     size={40} 
                     color={GREEN} 
                     style={{position:'absolute',top:300,left:10,zIndex:2}}/>
 
                 <Icon 
-                    onPress={()=>this.crosswordModal.open()}
+                    onPress={()=>{
+                        this.crosswordModal.open();
+                        this.hintModal.close();
+                    }}
                     name="reorder"
                     size={40} 
                     color={GREEN} 

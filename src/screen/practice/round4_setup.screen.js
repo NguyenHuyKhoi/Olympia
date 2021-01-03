@@ -145,6 +145,7 @@ class Round4SetupScreen extends Component{
                 {
                     [1,2,3].map((item,index)=>
                         <QuestionPackage 
+                            key={''+index}
                             index={index+1} 
                             pickLevel={this.pickLevel}
                             default_level={index}

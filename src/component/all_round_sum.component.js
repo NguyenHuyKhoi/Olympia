@@ -13,7 +13,7 @@ export default class AllRoundSumComponent extends Component{
     render(){
         return (
             <View style={{width:'100%',flexDirection:'row',justifyContent: 'space-between',alignItems:'center',
-            marginTop:10}}>
+            marginTop:5}}>
             <Text style={{fontSize:20,color:SILVER,marginLeft:30}}>
                 Tổng
             </Text>

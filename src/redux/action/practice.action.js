@@ -15,11 +15,11 @@ export const getPracticeRounds=()=>{
 
 }
 
-export const answer=(is_correct)=>{
-    console.log('choose option :',is_correct);
+export const answer=(score)=>{
+    console.log('choose option :',score);
     return {
         type:practiceActions.ANSWER,
-        payload:{is_correct}
+        payload:{score}
     }
 }
 

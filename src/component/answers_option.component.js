@@ -32,7 +32,7 @@ export default class AnswersOptionComponent extends Component{
         answers=shuffle(answers)
         
         return (
-            <TouchableOpacity 
+            <View 
                 style={{width:'100%',flexDirection:'column',alignItems:'center'}} >
 
                 <FlatList 
@@ -54,7 +54,7 @@ export default class AnswersOptionComponent extends Component{
                     }
                 </Text> */}
           
-            </TouchableOpacity>
+            </View>
         )
     }
 }

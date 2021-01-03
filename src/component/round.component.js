@@ -19,10 +19,35 @@ class RoundComponent extends Component{
     
 
 
+    calculateScore=(is_correct)=>{
+
+        console.log('RoundComponent calculateScore :',is_correct)
+        if (!is_correct) return 0;
+
+        console.log('RoundComponent calculateScore :',cri,cqi)
+
+        const {cri,cqi,rounds}=this.props.practice;
+        if (cri===0) return ROUNDS[0].score;
+        if (cri===1) return ROUNDS[1].score;
+        if (cri===2) return ROUNDS[2].score;
+        let round4=rounds[3];
+        let q=round4[cqi];
+        switch (q.code){
+            case 'easy':return ROUNDS[3].levels[0].score
+            case 'medium':return ROUNDS[3].levels[1].score
+            case 'hard':return ROUNDS[3].levels[2].score
+        }
+
+    };
+
     answer=(is_correct)=>{
 
         const {cri,cqi}=this.props.practice;
-        this.props.answer(is_correct);
+
+        let score=this.calculateScore(is_correct)
+        this.props.answer(score);
+
+
         if (cqi===ROUNDS[cri].number_question-1) 
             if (cri<3) this.nextRound()
                 else this.viewResult();
@@ -31,7 +56,7 @@ class RoundComponent extends Component{
     }
 
     nextRound=()=>{
-        this.props.navigation.navigate('practice_waiting')
+        this.props.navigation.navigate('practice_result')
     }
 
     viewResult=()=>{
@@ -53,7 +78,7 @@ class RoundComponent extends Component{
             question=round[cqi]
         };
 
-        console.log('RoundComponent question :',question)
+        console.log('RoundComponent question_num :',questions_num,questions_state)
 
         return (
             <View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',

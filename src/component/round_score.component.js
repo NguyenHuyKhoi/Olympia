@@ -11,7 +11,7 @@ import { GRAY, INDIGO_1, INDIGO_3, SILVER, WHITE } from '../util/palette';
 
 export default class RoundScoreComponent extends Component{
     render(){
-        const round=this.props.round;
+        const {score,round}=this.props;
 
         return (
             <View 
@@ -21,12 +21,12 @@ export default class RoundScoreComponent extends Component{
                     flexDirection:'row',
                     justifyContent: 'space-between',
                     borderRadius:15,alignItems:'center',
-                    paddingHorizontal:10,paddingVertical:7,marginTop: 20}}>
+                    paddingHorizontal:10,paddingVertical:7,marginTop: 10}}>
                 <Text style={{fontSize:18,color:SILVER}}>
                     {'Vòng '+round.index+' :'+round.name}
                 </Text>
                 <Text style={{fontSize:18,color:SILVER}}>
-                    {this.props.score>0?this.props.score:'...'}
+                    {score}
                 </Text>
             </View>
         )

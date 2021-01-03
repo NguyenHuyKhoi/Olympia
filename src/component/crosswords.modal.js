@@ -6,7 +6,7 @@ import {
     StyleSheet,
     Alert
 } from 'react-native';
-import { GREEN, RED, SILVER, WHITE } from '../util/palette';
+import { GREEN, INDIGO_1, INDIGO_2, RED, SILVER, WHITE } from '../util/palette';
 import Modal from 'react-native-modalbox'
 import AnswersOptionComponent from './answers_option.component';
 import AnswersInputComponent from './answers_input.component';
@@ -133,10 +133,10 @@ export default class CrosswordsModal extends Component{
                 position='center' 
                 ref={ref=>this.modal=ref} 
                 backdrop={true}
-                style={{width:'85%',height:360,borderRadius:5,backgroundColor:'#953593'}}
+                style={{width:'85%',height:360,borderRadius:5}}
                 isOpen={false}>
                 <View style={{flex:1,flexDirection:'column',alignItems:'center',
-                    backgroundColor:'#430698',
+                    backgroundColor:INDIGO_2,
                     justifyContent:'flex-start'}}>
                     <Keyword keyword={keyword}/>
                     {
