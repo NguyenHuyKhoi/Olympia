@@ -7,7 +7,7 @@ export const ROUNDS=[
     {
         index:1,
         name:'Khởi động',
-        number_question:12,//12
+        number_question:1,//12
         max_score:120,
         time:60,
         score:10,
@@ -16,7 +16,7 @@ export const ROUNDS=[
     {
         index:2,
         name:'Vượt chướng ngại vật',
-        number_question:5,//4
+        number_question:1,//4
         max_score:120,
         time:15,
         max_keyword_score:80,
@@ -26,7 +26,7 @@ export const ROUNDS=[
     {
         index:3,
         name:'Tăng tốc',
-        number_question:4,//4
+        number_question:1,//4
         max_score:120,
         time:30,
         score:40,
@@ -35,7 +35,7 @@ export const ROUNDS=[
     {
         index:4,
         name:'Về đích',
-        number_question:3,//3
+        number_question:1,//3
         max_score:120,
         time:15,
         levels:[

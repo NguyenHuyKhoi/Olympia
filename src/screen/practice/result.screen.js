@@ -20,16 +20,29 @@ import {connect }from 'react-redux'
 import * as actions from '../../redux/action/practice.action'
 import { convertFullDateToHour } from '../../util/helper';
 import ResultComponent from '../../component/result.component';
+import firebaseHelper from '../../util/firebase';
 
 
 class PracticeResultScreen extends Component{
 
-    nextRound=()=>{
-        this.props.nextRound();
-        if (this.props.practice.cri===3) this.props.navigation.navigate('practice_home')
-        else this.props.navigation.navigate('practice_waiting')
+    nextRound=async()=>{
 
+        let cri=this.props.practice.cri  
 
+        console.log('resultScreen :',cri)
+        if (cri<3) {
+            this.props.nextRound();
+            this.props.navigation.navigate('practice_waiting')
+        }
+        else {
+            let time=(new Date()).toISOString();
+            await firebaseHelper.push('/history/',{
+                user_id:this.props.user.infor.id,
+                scores:this.props.practice.scores,
+                time
+            });
+            this.props.navigation.navigate('practice_home')
+        }
     }
 
     render(){
@@ -55,7 +68,8 @@ class PracticeResultScreen extends Component{
 }
 
 const mapStateToProps = state => ({
-	practice: state.practice,
+    practice: state.practice,
+    user:state.user
 });
 
 

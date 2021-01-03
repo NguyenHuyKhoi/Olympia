@@ -14,34 +14,50 @@ import RoundScoreComponent from '../../component/round_score.component';
 import { ROUNDS } from '../../util/constants';
 import { LOGO } from '../../resource/image';
 import { INDIGO_2,SILVER, INDIGO_3, GREEN } from '../../util/palette';
+
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/practice.action'
+
+
 import ResultComponent from '../../component/result.component';
-const results=[
-    {
-        time:'8h45 - 02/20/2020',
-        rounds:[80,80,30,50],
-        score:240
-    },
-    {
-        time:'8h45 - 02/20/2020',
-        rounds:[80,80,30,50],
-        score:240
-    },
-    {
-        time:'8h45 - 02/20/2020',
-        rounds:[80,80,30,50],
-        score:240
-    },
-    {
-        time:'8h45 - 02/20/2020',
-        rounds:[80,80,30,50],
-        score:240
+
+import firebaseHelper from '../../util/firebase'
+import { toArray } from '../../util/helper';
+class PracticeHistoryScreen extends Component{
+
+    constructor(props){
+        super(props);
+        this.state={
+            history:[]
+        }
     }
-]
 
-export default class PracticeHistoryScreen extends Component{
+    componentDidMount=async ()=>{
+        let all=toArray(await firebaseHelper.get('/history/'));
 
+        console.log('HistoryScreen :',this.props.user.infor.id)
+        let res=[];
+        all.map((item)=>{
+            if (item.user_id===this.props.user.infor.id){
 
+                console.log('HistoryScreen find:',{
+                    ...item,
+                    scores:toArray(item.scores)
+                })
+                res.push({
+                    ...item,
+                    scores:toArray(item.scores)
+                });
+            }
+        });
+
+        await this.setState({
+            history:res
+        })
+    }
     render(){
+
+        const {history}=this.state;
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
                 alignItems:'center'}}>
@@ -53,13 +69,24 @@ export default class PracticeHistoryScreen extends Component{
 
 
                 <FlatList 
-                    data={results}
+                    data={history}
                     keyExtractor={(item,index)=>''+index}
                     renderItem={({item})=>(
-                        <ResultComponent result={item}/>
+                        <ResultComponent scores={item.scores} time={item.time}/>
                     )}
                 />
             </View>
         )
     }
 }
+
+
+const mapStateToProps = state => ({
+    practice: state.practice,
+    user:state.user
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(PracticeHistoryScreen)

@@ -18,7 +18,8 @@ import { ROUNDS } from '../../util/constants';
 class PracticeWaitingScreen extends Component{
 
     render(){
-        const {cri,questions_state}=this.props.practice;
+        let {cri,questions_state}=this.props.practice;
+        if (cri>3) cri=3
         const round=ROUNDS[cri]
 
         console.log('Waiting Screen :cri,questions_state:',cri,questions_state)

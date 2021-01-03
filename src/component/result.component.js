@@ -12,6 +12,7 @@ import AllRoundSumComponent from './all_round_sum.component';
 import RoundScoreComponent from './round_score.component';
 import { MAX_WIDTH, ROUNDS } from '../util/constants';
 import { INDIGO_2,SILVER, INDIGO_3, GREEN, WHITE } from '../util/palette';
+import { convertFullDateToHour } from '../util/helper';
 
 export default class ResultComponent extends Component{
     render(){
@@ -26,7 +27,7 @@ export default class ResultComponent extends Component{
                     time!==undefined?
                     <Text style={{fontSize:18,color:SILVER}}>
                         {
-                            time
+                            convertFullDateToHour(time)
                         }
                     </Text>
                     :
