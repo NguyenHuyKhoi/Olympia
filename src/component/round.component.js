@@ -19,13 +19,7 @@ class RoundComponent extends Component{
     
 
 
-    calculateScore=(is_correct)=>{
-
-        console.log('RoundComponent calculateScore :',is_correct)
-        if (!is_correct) return 0;
-
-        console.log('RoundComponent calculateScore :',cri,cqi)
-
+    calculateScore=()=>{
         const {cri,cqi,rounds}=this.props.practice;
         if (cri===0) return ROUNDS[0].score;
         if (cri===1) return ROUNDS[1].score;
@@ -42,9 +36,18 @@ class RoundComponent extends Component{
 
     answer=(is_correct)=>{
 
-        const {cri,cqi}=this.props.practice;
+        const {cri,cqi,picked_star}=this.props.practice;
 
-        let score=this.calculateScore(is_correct)
+        let score=this.calculateScore()
+        
+        if (cri===3 && picked_star===cqi){
+            if (is_correct) score*=2;   
+                else score=-score;
+        }
+        else {
+            if (is_correct) score=score;    
+                else score=0;
+        }
         this.props.answer(score);
 
 

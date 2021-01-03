@@ -9,8 +9,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 import ButtonComponent from '../../component/button.component';
-import { STAR1, STAR2 } from '../../resource/image';
 
+import STAR1 from '../../resource/image/star1.png'
+import STAR2 from '../../resource/image/star2.png'
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/practice.action'
 
@@ -47,11 +48,7 @@ class QuestionPackage extends Component{
     }
 
     pickStar=()=>{
-        const e=this.state.is_picked_star;
-        this.setState({
-            ...this.state,
-            is_picked_star:!e
-        })
+        this.props.pickStar();
     }
 
     pickLevel=(level)=>{
@@ -64,20 +61,20 @@ class QuestionPackage extends Component{
       
     render(){
 
-        const {index}=this.props.index;
+        const {index,is_picked_star}=this.props;
         return (
             <View style={{width:'100%',flexDirection:'column',alignItems:'center'}}>
                 <Text style={{fontSize:25,color:SILVER,marginTop: 25}}>
                     {
-                        'Câu '+this.props.index
+                        'Câu '+index
                     }
                 </Text>
 
                 <TouchableOpacity 
                     onPress={this.pickStar}
                     style={{position: 'absolute',top:25,right: 85}}>
-                    <Image source={!this.state.is_picked_star?STAR1:STAR2} 
-                        style={{width: 30,height:30,tintColor:!this.state.is_picked_star?WHITE:null}}/>
+                    <Image source={!is_picked_star?STAR1:STAR2} 
+                        style={{width: 30,height:30}}/>
                 </TouchableOpacity>
 
                 <View style={{marginTop:20,width:'100%',flexDirection:'row',justifyContent: 'space-between',alignItems:'center'}}>
@@ -103,7 +100,8 @@ class Round4SetupScreen extends Component{
         super(props);
         this.state={
             arr:[1,1,1],
-            total_score:60
+            total_score:60,
+            picked_star:-1
         }
     }
 
@@ -124,12 +122,25 @@ class Round4SetupScreen extends Component{
     }
 
     enterRound4=()=>{
-        this.props.chooseRound4Questions(this.state.arr);
+        this.props.chooseRound4Questions(this.state.arr,this.state.picked_star);
 
         setTimeout(()=>{
             this.props.navigation.navigate('practice_round4');
         },1000)
 
+    }
+
+    pickStar=(index)=>{
+        if (this.state.picked_star===index) {
+            this.setState({
+                picked_star:-1
+            })
+        }
+        else {
+            this.setState({
+                picked_star:index
+            })
+        }
     }
 
     render(){
@@ -147,7 +158,9 @@ class Round4SetupScreen extends Component{
                         <QuestionPackage 
                             key={''+index}
                             index={index+1} 
+                            is_picked_star={index===this.state.picked_star}
                             pickLevel={this.pickLevel}
+                            pickStar={()=>this.pickStar(index)}
                             default_level={index}
                         />
                     )

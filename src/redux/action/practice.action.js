@@ -23,14 +23,14 @@ export const answer=(score)=>{
     }
 }
 
-export const chooseRound4Questions=(arr)=>{
+export const chooseRound4Questions=(arr,picked_star)=>{
     console.log('chooseRound4Questions :',arr);
     return async (dispatch)=>{
         let round4=await firebase.getRound4(arr);
 
         dispatch({
             type:practiceActions.CHOOSE_ROUND4_QUESTIONS,
-            payload:{round4}
+            payload:{round4,picked_star}
         })
     }
 }

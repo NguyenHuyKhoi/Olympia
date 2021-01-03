@@ -58,10 +58,12 @@ export default practiceReducer=(state=initial_state,action)=>{
         case practiceActions.CHOOSE_ROUND4_QUESTIONS:
             rounds[3]=payload.round4;
 
+
             console.log('practiceReducer round4:',payload.round4)
             return {
                 ...state,
-                rounds
+                rounds,
+                picked_star:payload.picked_star
             };
 
         default:

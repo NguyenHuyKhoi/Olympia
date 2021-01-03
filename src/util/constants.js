@@ -23,7 +23,7 @@ export const ROUNDS=[
     {
         index:3,
         name:'Tăng tốc',
-        number_question:4,//4
+        number_question:1,//4
         max_score:120,
         score:40,
         rule:'Có 4 câu hỏi dạng : IQ ,sắp xếp/lọc hình ảnh, dữ kiện. \n\nNgười chơi trả lời đúng trong vòng :  \n    + 0s  - 10s : 40 điểm.\n    + 10s - 15s : 30 điểm \n    + 20s - 25s : 20 điểm\n    + 25s - 30s : 10 điểm'
@@ -31,7 +31,7 @@ export const ROUNDS=[
     {
         index:4,
         name:'Về đích',
-        number_question:3,//3
+        number_question:1,//3
         max_score:120,
         levels:[
             {
