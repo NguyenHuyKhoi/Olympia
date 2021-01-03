@@ -7,6 +7,7 @@ import {
     View
 } from 'react-native';
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
+import { MAX_WIDTH } from '../util/constants';
 import { INDIGO_1, WHITE } from '../util/palette';
 
 export default class InputTextComponent extends Component{
@@ -14,7 +15,7 @@ export default class InputTextComponent extends Component{
         return (
             <View 
                 style={{
-                    width:320,height:50,backgroundColor:INDIGO_1,
+                    width:MAX_WIDTH,height:50,backgroundColor:INDIGO_1,
                     borderWidth: 1,borderColor: WHITE,
                     flexDirection:'row',
                     borderRadius:25,alignItems:'center',

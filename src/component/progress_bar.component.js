@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { GRAY, GREEN, RED, SILVER, WHITE } from '../util/palette';
 import { initialArray } from '../util/helper';
+import { MAX_WIDTH } from '../util/constants';
 
 export default class ProgressBarComponent extends Component{
 
@@ -27,12 +28,11 @@ export default class ProgressBarComponent extends Component{
 
         console.log('ProgressBar :',amount,states,arr)
        // console.log('states :',states);
-        const width_item=320/(1.3*amount);
+        const width_item=MAX_WIDTH/(1.3*amount);
         console.log('ProgressBar :',amount,states,arr,width_item)
         return (
             <View style={{
-                width:320,height:5,flexDirection:'row',justifyContent: 'space-between',
-                marginTop:5
+                width:MAX_WIDTH,height:5,flexDirection:'row',justifyContent: 'space-between',marginTop:5
             }}>
                 {
                     arr.map((item,index)=>(

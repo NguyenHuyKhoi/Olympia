@@ -12,7 +12,7 @@ import QuestionComponent from './question.component';
 
 import {connect }from 'react-redux'
 import * as actions from '../redux/action/practice.action'
-import { ROUNDS } from '../util/constants';
+import { MAX_WIDTH, ROUNDS } from '../util/constants';
 import AnswersOptionComponent from './answers_option.component';
 import AnswerInputComponent from './answers_input.component'
 class RoundComponent extends Component{
@@ -82,11 +82,11 @@ class RoundComponent extends Component{
 
         return (
             <View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
-                alignItems:'center',padding:10}}>
+                alignItems:'center'}}>
          
 
                 
-                <View style={{width:320,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+                <View style={{width:MAX_WIDTH,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                     <Text style={{fontSize: 22,color:SILVER}}>
                         {'Câu '+(cqi+1)+'/'+(questions_num)}
                     </Text>
@@ -97,7 +97,7 @@ class RoundComponent extends Component{
                 </View>
                 <ProgressBarComponent states={questions_state} amount={questions_num}/>
 
-                <View style={{flex:5,marginTop:20,width:'100%'}}>
+                <View style={{flex:5,marginTop:20,width:MAX_WIDTH}}>
                     <QuestionComponent question={question}/>
                 </View>
 

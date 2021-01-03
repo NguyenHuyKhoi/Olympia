@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import AllRoundSumComponent from './all_round_sum.component';
 import RoundScoreComponent from './round_score.component';
-import { ROUNDS } from '../util/constants';
+import { MAX_WIDTH, ROUNDS } from '../util/constants';
 import { INDIGO_2,SILVER, INDIGO_3, GREEN, WHITE } from '../util/palette';
 
 export default class ResultComponent extends Component{
@@ -20,7 +20,7 @@ export default class ResultComponent extends Component{
         scores.map((item)=>total+=item)
         console.log('resultComponent :',scores,time)
         return (
-            <View style={{width:320,marginHorizontal:20,marginTop:15,flexDirection:'column',
+            <View style={{width:MAX_WIDTH,marginHorizontal:20,marginTop:15,flexDirection:'column',
             alignItems:'center'}}>
                 {
                     time!==undefined?

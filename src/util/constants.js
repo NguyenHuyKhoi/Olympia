@@ -1,11 +1,13 @@
 export const APP_NAME='Cùng lên Olympia';
 
 export const INITIAL_ROUND=0;
+
+export const MAX_WIDTH=340;
 export const ROUNDS=[
     {
         index:1,
         name:'Khởi động',
-        number_question:12,//12
+        number_question:1,//12
         max_score:120,
         score:10,
         rule:'Trong vòng 1 phút, người chơi trả lời tối đa 12 câu hỏi: \n   + Thuộc 10 lĩnh vực: Toán, Lý, Hóa, Sinh, Văn, Sử, Địa, Thể thao, Nghệ thuật, Lĩnh vực khác, Tiếng Anh. \n  + Trả lời đúng được 10 điểm.\n  + Trả lời sai không bị trừ điểm.'
@@ -13,7 +15,7 @@ export const ROUNDS=[
     {
         index:2,
         name:'Vượt chướng ngại vật',
-        number_question:4,//4
+        number_question:1,//4
         max_score:120,
         score:10,
         rule:'Cần tìm ra từ khóa với các gợi ý : \n    + Gồm bao nhiêu ký tự?\n    + Hình ảnh gợi ý. \n    + 4 từ hàng ngang (15s - 10đ ).Trả lời đúng, một góc của hình ảnh được mở ra.\n\n  Người chơi có trể trả lời chướng ngại vật ở hàng ngang :  \n    + Đầu tiên :80 điểm. \n    + Thứ hai  :60 điểm.\n    + Thứ ba   :40 điểm. \n    + Thứ tư   :20 điểm. \n\nTrả lời sai chướng ngại vật ,người chơi sẽ bị loại khỏi vòng chơi này.'

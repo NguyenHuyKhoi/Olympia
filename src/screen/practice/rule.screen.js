@@ -11,7 +11,7 @@ import {
 import AllRoundSumComponent from '../../component/all_round_sum.component';
 import ButtonComponent from '../../component/button.component';
 import RoundScoreComponent from '../../component/round_score.component';
-import { ROUNDS } from '../../util/constants';
+import { MAX_WIDTH, ROUNDS } from '../../util/constants';
 import { LOGO } from '../../resource/image';
 import { INDIGO_2,SILVER, INDIGO_3, GREEN } from '../../util/palette';
 
@@ -19,7 +19,7 @@ class RuleItem extends Component{
     render(){
         const round=this.props.round;
         return (
-            <View style={{width:320,marginHorizontal:20,flexDirection:'column',alignItems:'center'}}>
+            <View style={{width:MAX_WIDTH,marginHorizontal:20,flexDirection:'column',alignItems:'center'}}>
                 <RoundScoreComponent round={round} score={round.max_score}/>
                 <Text style={{fontSize:18,color:SILVER,marginTop:15,lineHeight:25}}>
                     {

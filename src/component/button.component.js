@@ -5,12 +5,13 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native';
+import { MAX_WIDTH } from '../util/constants';
 import { GREEN, WHITE } from '../util/palette';
 
 export default class ButtonComponent extends Component{
     render(){
         let {width,background,label,margin_top,text_color}=this.props;
-        if (width===undefined) width=320
+        if (width===undefined) width=MAX_WIDTH
         if (background===undefined) background=GREEN;
         if (margin_top===undefined) margin_top=20;
         if (label===undefined) label='Gửi'

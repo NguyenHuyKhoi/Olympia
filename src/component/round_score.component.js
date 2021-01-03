@@ -7,6 +7,7 @@ import {
     View
 } from 'react-native';
 import  Icon  from 'react-native-vector-icons/MaterialIcons';
+import { MAX_WIDTH } from '../util/constants';
 import { GRAY, INDIGO_1, INDIGO_3, SILVER, WHITE } from '../util/palette';
 
 export default class RoundScoreComponent extends Component{
@@ -16,7 +17,7 @@ export default class RoundScoreComponent extends Component{
         return (
             <View 
                 style={{
-                    width:320,height:50,backgroundColor:INDIGO_3,
+                    width:MAX_WIDTH,height:50,backgroundColor:INDIGO_3,
                     borderWidth: 1,borderColor: GRAY,
                     flexDirection:'row',
                     justifyContent: 'space-between',

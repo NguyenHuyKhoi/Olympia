@@ -1410,7 +1410,6 @@
                             2
                         ],
                         "hint": "Mỗi số trong phần giao nhau của 2 hình tròn bằng tổng các số màu trắng của 2 vòng tròn đó.Vd 23=1+7+5+10",
-                        "content": "Số nào còn thiếu trong dấu ?",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a1.PNG?alt=media&token=231a3050-0392-4539-b82c-3b191e4efb16"
                     },
                     {
@@ -1421,7 +1420,6 @@
                             "A"
                         ],
                         "hint": "các kí hiệu nhỏ quay 45 độ cùng chiều kim đồng hồ",
-                        "content": " Tìm dạng đối xứng trục dọc của hình còn thiếu trong dấu? ",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a2.PNG?alt=media&token=bd4f0f71-7ae7-4844-acb4-2039ac8de146"
                     },
                     {
@@ -1432,7 +1430,6 @@
                             "F"
                         ],
                         "hint": "",
-                        "content": "",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a3.PNG?alt=media&token=4c13a48a-0c44-4d5e-a72c-f9cdda1f31a6"
                     },
                     {
@@ -1443,7 +1440,6 @@
                             "0"
                         ],
                         "hint": "Gợi ý 9*8=72,7*4=28,9*6=54",
-                        "content": "",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a4.PNG?alt=media&token=661ee4fc-95ce-4d37-93e2-403f777cbba5"
                     },
                     {
@@ -1454,7 +1450,6 @@
                             "E"
                         ],
                         "hint": "Để ý quy luật chuyển động của từng chấm đen trong từng ô vuông tương ứng ở các hình",
-                        "content": "",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a5.PNG?alt=media&token=f8a6f6f9-0125-4622-9914-f533a9169a33"
                     },
                     {
@@ -1465,7 +1460,6 @@
                             "4"
                         ],
                         "hint": "Gợi ý.Số ở 2 ô tròn ngoài đối diện nhau 12+14=7+7+5+7",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a6.PNG?alt=media&token=5435fa8c-9522-40b2-8a40-887eb3140b44"
                     },
                     {
@@ -1476,7 +1470,6 @@
                             "15"
                         ],
                         "hint": "55 nghĩa là dòng thứ 5 cột thứ 5",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a7.PNG?alt=media&token=60d512d1-6897-44f3-9bce-9d439e80f882"
                     },
                     {
@@ -1487,7 +1480,6 @@
                             "C"
                         ],
                         "hint": "Tổng số chấm đen ở 3 hình bằng 5 ,số chấm trắng bằng 4",
-                        "content": "",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a8.PNG?alt=media&token=04838ddd-9079-4caa-ad07-a6c5291f486f"
                     },
                     {
@@ -1497,8 +1489,7 @@
                             "5",
                             "25"
                         ],
-                        "hint": "",
-                        "content": "Theo quy luât đó, có 2 trường hợp xảy ra, đó là: tích các số theo hàng ngang sẽ bằng tổng các số theo côt dọc hoặc  ngược lại. Vậy số cần điền là: 1x17 – 4 = 13.",
+                        "hint": "Theo quy luât đó, có 2 trường hợp xảy ra, đó là: tích các số theo hàng ngang sẽ bằng tổng các số theo côt dọc hoặc  ngược lại. Vậy số cần điền là: 1x17 – 4 = 13.",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a9.PNG?alt=media&token=2776dd64-07f8-4d06-ab3b-b91ec3e986de"
                     },
                     {
@@ -1509,7 +1500,6 @@
                             "B"
                         ],
                         "hint": " Vì trog tam giác nếu để ý sẽ thấy có một cặp hình giống nhau và chỉ khác màu",
-                        "content": "Hình nào còn thiếu ở hình bát giác này? ",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a10.PNG?alt=media&token=446f9142-1d52-4f27-a61e-3667599dbc03"
                     }
                 ]
@@ -1526,7 +1516,6 @@
                             "10"
                         ],
                         "hint": "(7+6+5)=18;3+4+8=15;2+12+7=21",
-                        "content": "",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a11.PNG?alt=media&token=a22e79ec-6f9b-4556-a625-1a14bee2c8d6"
                     },
                     {
@@ -1537,7 +1526,6 @@
                             "0"
                         ],
                         "hint": " vì tích hai số dưới chia cho số trên là 15",
-                        "content": "Tìm số thích hợp điền vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a12.PNG?alt=media&token=63ee6e2f-54cd-4f2e-9894-15d40febb5f7"
                     },
                     {
@@ -1548,7 +1536,6 @@
                             "50"
                         ],
                         "hint": "vì 45 đảo ngược là 54,12 đảo ngược là 21,....23 đảo ngược là 3",
-                        "content": "Tìm số còn thiếu",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a13.PNG?alt=media&token=fe95d1a2-bf1b-41d2-b63e-43bfe4d2991c"
                     },
                     {
@@ -1570,7 +1557,6 @@
                             "21"
                         ],
                         "hint": " Số ở giữa bằng 2 lần tổng các số bên ngoài",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a15.PNG?alt=media&token=15b7eeca-b357-40b7-8188-f4787c131d28"
                     },
                     {
@@ -1581,7 +1567,6 @@
                             "5"
                         ],
                         "hint": ".Số phút - số giờ :10h25 (=) 25-10 =15 ",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a16.PNG?alt=media&token=02c8a7a0-bfbc-4dae-a644-ac2bdd4f00f9"
                     },
                     {
@@ -1592,7 +1577,6 @@
                             "3"
                         ],
                         "hint": "Tổng 2 tay = tổng đầu với chân. Ở hình thứ nhất 12+8 = 6+5+9 . Ở hình 2 : 3 + 12= 7+2+ x từ đó=> x =15 - 9 = 6",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a17.PNG?alt=media&token=02daf6ed-2896-4af8-8b95-2a0e68779281"
                     },
                     {
@@ -1603,7 +1587,6 @@
                             "8"
                         ],
                         "hint": "Quy luật (5+11+9+3+7)/5=7",
-                        "content": "Điền số thích hợp vào dấu \"?\" ",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a18.PNG?alt=media&token=08314178-dfc2-4825-9ef9-64b399feba3a"
                     },
                     {
@@ -1614,7 +1597,6 @@
                             "8"
                         ],
                         "hint": "(4+6)/2=5",
-                        "content": "Điền số thích hợp vào dấu \"?\"",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/a19.PNG?alt=media&token=b7ef65f9-57d1-4778-ab4d-c6e7aa77e092"
                     },
                     {
@@ -1663,7 +1645,6 @@
                             "D",
                             "B"
                         ],
-                        "hint:": "",
                         "content": "Hình nào khác so với các hình còn lại?",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/b3.PNG?alt=media&token=c4942d2e-e3c4-4f00-8329-3882b52640a6"
                     },
@@ -1674,7 +1655,6 @@
                             "D-C-A-B",
                             "B-C-A-D"
                         ],
-                        "hint:": "",
                         "content": " sắp xếp các kinh đô sau với triều đại",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/b4.PNG?alt=media&token=e30ceb3b-7e28-4aab-87c0-43026c997aa2"
                     },
@@ -1696,7 +1676,6 @@
                             "B",
                             "D"
                         ],
-                        "hint:": "",
                         "content": "Tìm hình khác các hình còn lại",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/b6.PNG?alt=media&token=b3ee0ebf-92b7-4a64-93fd-b51e8233eab2"
                     },
@@ -1721,18 +1700,6 @@
                         "hint:": "Các hình khác có 2 que xanh dương.Hình D có 1 xanh dương.",
                         "content": "Tìm hình khác các hình còn lại",
                         "image": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/b8.PNG?alt=media&token=db5f2773-84b3-46e2-9f22-184f11687884"
-                    },
-                    {
-                        "answers": [],
-                        "hint:": "",
-                        "content": "",
-                        "image": ""
-                    },
-                    {
-                        "answers": [],
-                        "hint:": "",
-                        "content": "",
-                        "image": ""
                     }
                 ]
             },
@@ -1747,7 +1714,6 @@
                             "Khí",
                             "Chất lỏng"
                         ],
-                        "hint": "",
                         "content": "Đây là gì?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv1.mp4?alt=media&token=75df87a4-5c4c-4a43-af49-6109d74a80c2"
                     },
@@ -1758,7 +1724,6 @@
                             "Hữu Thỉnh",
                             "Chế Lan Viên"
                         ],
-                        "hint": "",
                         "content": "Đây là ai?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv2.mp4?alt=media&token=95596104-11bc-4d82-8916-816449cf5974"
                     },
@@ -1769,7 +1734,6 @@
                             "Kháng chiến chống Pháp",
                             "Kháng chiến chống Mỹ"
                         ],
-                        "hint": "",
                         "content": "Đây là gì?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv3.mp4?alt=media&token=7ac9fb6f-c15a-4739-af2e-6e987642eb73"
                     },
@@ -1780,7 +1744,6 @@
                             "20",
                             "55"
                         ],
-                        "hint": "",
                         "content": "Đây là số nào?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv4.mp4?alt=media&token=25f76336-e2e5-45ff-bfb0-2e1db1a72a35"
                     },
@@ -1791,7 +1754,6 @@
                             "Xuân Quỳnh",
                             "Huy Cận"
                         ],
-                        "hint": "",
                         "content": "Đây là ai?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv5.mp4?alt=media&token=1d3da549-ade7-4bb7-ad79-5265c056235d"
                     },
@@ -1802,7 +1764,6 @@
                             "Mít",
                             "Xoan"
                         ],
-                        "hint": "",
                         "content": "Đây là cây gì?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv6.mp4?alt=media&token=3b26f82d-d500-4de2-bc9c-cee52410b1da"
                     },
@@ -1813,7 +1774,6 @@
                             "Chế Lan Viên",
                             "Tố H"
                         ],
-                        "hint": "",
                         "content": "Đây là ai?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv7.mp4?alt=media&token=1571c0ca-3e65-47ec-8b58-12c56791ec4d"
                     },
@@ -1824,7 +1784,6 @@
                             "13",
                             "19"
                         ],
-                        "hint": "",
                         "content": "Đây là số nào?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv8.mp4?alt=media&token=acd70e48-a1a1-430e-9382-58e14d72bcec"
                     },
@@ -1835,7 +1794,6 @@
                             "Natri",
                             "Chì"
                         ],
-                        "hint": "",
                         "content": "Đây là gì?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv9.mp4?alt=media&token=e2d03e2c-baea-4944-aa5a-3bfd0af97100"
                     },
@@ -1846,7 +1804,6 @@
                             "Trần Quốc Toản",
                             "Trần Nhật Duật"
                         ],
-                        "hint": "",
                         "content": "Đây là ai?",
                         "video": "https://firebasestorage.googleapis.com/v0/b/olympia-cf242.appspot.com/o/video%2Fv10.mp4?alt=media&token=a29df366-9bbb-45bb-90e9-8c40484d560e"
                     }
