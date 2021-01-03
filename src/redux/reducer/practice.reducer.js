@@ -88,7 +88,6 @@ export default practiceReducer=(state=initial_state,action)=>{
                 rounds,
                 picked_star:payload.picked_star
             };
-
         default:
             return state
     }

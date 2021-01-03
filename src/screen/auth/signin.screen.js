@@ -16,8 +16,10 @@ import { LOGO } from '../../resource/image';
 import { INDIGO_1, INDIGO_2, WHITE,GREEN } from '../../util/palette';
 import firebaseHelper from '../../util/firebase';
 import { validatePassword, validatePhone } from '../../util/helper';
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/user.action'
 
-export default class SigninScreen extends Component{
+class SigninScreen extends Component{
 
     constructor(props){
         super(props);
@@ -29,6 +31,11 @@ export default class SigninScreen extends Component{
     }
 
     componentDidMount=()=>{
+
+        console.log('Signin :',this.props.user)
+        if (this.props.user.infor!==null){
+            this.props.navigation.navigate('home')
+        }
 		this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', ()=>{
 			this.setState({show_keyboard:true})
 		});
@@ -53,10 +60,15 @@ export default class SigninScreen extends Component{
             return ;
         }
 
-        let is_correct=await firebaseHelper.signin(this.state);
+        let user=await firebaseHelper.signin({
+            phone:this.state.phone,
+            password:this.state.password
+        });
 
-        if (is_correct){
+        if (user!==null){
             Alert.alert('Đăng nhập thành công!');
+
+            this.props.signinSuccess(user);
             this.props.navigation.navigate('home')
         }
         else {
@@ -122,3 +134,12 @@ export default class SigninScreen extends Component{
         )
     }
 }
+
+const mapStateToProps = state => ({
+	user: state.user,
+});
+
+
+
+
+export default connect(mapStateToProps,actions,null )(SigninScreen)

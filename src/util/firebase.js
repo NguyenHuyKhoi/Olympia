@@ -141,11 +141,17 @@ class FirebaseHelper{
     signin= async (data)=>{
         let users=toArray(await this.get('/user/'));
 
-        let is_correct=false;
+        let user=null;
         users.map((item)=>{
-            if (item.phone===data.phone && item.password === data.password) is_correct=true;
+            if (item.phone===data.phone && item.password === data.password) user=item;
         });
-        return is_correct
+        return user
+    }
+
+    updateUser=async (data)=>{
+
+        console.log('firebase updateUser :',data,data.username)
+        await this.update('/user/'+data.id,data);
     }
 
     

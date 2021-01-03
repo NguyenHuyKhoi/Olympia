@@ -14,7 +14,6 @@ export default class PracticeRound3Screen extends Component{
 
             <RoundComponent
                 duration={ROUNDS[2].time}
-                ref={ref=>this.roundRef=ref}
                 navigation={this.props.navigation}/>
         )
     }

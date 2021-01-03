@@ -90,7 +90,6 @@ class PracticeRound2Screen extends Component{
                     !keyword_answered?
                     <RoundComponent
                         duration={ROUNDS[1].time}
-                        ref={ref=>this.roundRef=ref}
                         onAnswerKeyword={this.onAnswerKeyword}
                         navigation={this.props.navigation}/>
                     :

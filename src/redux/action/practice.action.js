@@ -38,6 +38,7 @@ export const answerKeyword=(keyword_score)=>{
     }
 }
 
+
 export const chooseRound4Questions=(arr,picked_star)=>{
     console.log('chooseRound4Questions :',arr);
     return async (dispatch)=>{

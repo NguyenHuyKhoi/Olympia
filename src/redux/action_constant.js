@@ -6,3 +6,8 @@ export const practiceActions={
     ANSWER_KEYWORD:'ANSWER_KEYWORD'
 }
 
+export const userActions={
+    SIGNIN_SUCCESS:'SIGNIN_SUCCESS',
+    SIGNOUT:'SIGNOUT'
+}
+

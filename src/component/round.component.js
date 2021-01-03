@@ -168,4 +168,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps,actions,null,{forwardRef : true} )(RoundComponent)
+export default connect(mapStateToProps,actions )(RoundComponent)
