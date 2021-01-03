@@ -30,7 +30,7 @@ export default class App extends Component{
 		return (
 			<Provider store={store}>
 			<NavigationContainer>
-				<stack.Navigator headerMode='none' initialRouteName='signin'>
+				<stack.Navigator headerMode='none' initialRouteName='practice_home'>
 					<stack.Screen name='signin' component={SigninScreen}/>
 					<stack.Screen name='signup' component={SignupScreen}/>
 					<stack.Screen name='home' component={HomeScreen}/>
