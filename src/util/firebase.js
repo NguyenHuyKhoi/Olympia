@@ -108,6 +108,48 @@ class FirebaseHelper{
         let rounds=[round1,round2,round3,round4]
         return rounds
     }
+
+
+     //data :{email,password}
+    checkUserExist=async (phone) =>{
+        let user_is_exist=false;
+
+        let users=toArray(await this.get('/user/'));
+
+        users.map((item)=>{
+            if (item.phone===phone) user_is_exist=true;
+        });
+
+        return user_is_exist;
+    };
+
+
+    //data :{email,password}
+    signup=async (data)=>{
+        console.log("firebase signup :",data);
+
+        let username='User'+Math.floor(Math.random()*1000);
+
+        await this.push('/user/',{
+                phone:data.phone,
+                password:data.password,
+                username
+            });
+        return true;
+    };
+
+    signin= async (data)=>{
+        let users=toArray(await this.get('/user/'));
+
+        let is_correct=false;
+        users.map((item)=>{
+            if (item.phone===data.phone && item.password === data.password) is_correct=true;
+        });
+        return is_correct
+    }
+
+    
+
 }
 
 const firebaseHelper=new FirebaseHelper();

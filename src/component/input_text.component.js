@@ -24,9 +24,11 @@ export default class InputTextComponent extends Component{
                     marginTop: 20}}>
                 <Icon name={this.props.logo} size={30} color={WHITE} />
                 <TextInput 
+                    keyboardType={this.props.type}
                     placeholder={this.props.label} 
-                    value={this.props.value!==undefined?this.props.value:''}
+                    value={this.props.value}
                     placeholderTextColor={WHITE} 
+                    onChangeText={this.props.onChange}
                     style={{flex:1,marginLeft:20,fontSize:17,color:WHITE}}/>
             </View>
         )

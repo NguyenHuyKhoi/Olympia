@@ -29,9 +29,9 @@ export default class SettingAccountScreen extends Component{
                     TÀI KHOẢN
                 </Text>
 
-                <InputTextComponent logo='account-circle' place='Email'  value={'huykhoiqc@gmail.com'} />
-                <InputTextComponent logo='account-circle' place='Username'  value={'huykhoiqc@gmail.com'} />
-                <InputTextComponent logo='https' place='Password' value={'123456'} />
+                <InputTextComponent logo='account-circle' label='Số điện thoại'  value={'huykhoiqc@gmail.com'} />
+                <InputTextComponent logo='account-circle' label='Tên người dùng'  value={'huykhoiqc@gmail.com'} />
+                <InputTextComponent logo='https' label='Mật khẩu' value={'123456'} />
 
                 <ButtonComponent label='LƯU' text_color={WHITE} background={GREEN} 
                     onPress={()=>this.props.navigation.navigate('home')}
