@@ -10,6 +10,7 @@ import { GREEN, INDIGO_1, INDIGO_2, RED, SILVER, WHITE } from '../util/palette';
 import Modal from 'react-native-modalbox'
 import AnswersOptionComponent from './answers_option.component';
 import AnswersInputComponent from './answers_input.component';
+import { remove } from '../util/helper';
 
 class Word extends Component {
     defineColor=(state)=>{
@@ -21,7 +22,7 @@ class Word extends Component {
         }
     }
     render(){
-        const {word,state}=this.props;
+        const {word,state,show}=this.props;
         const chars=[...word.toUpperCase()];
         console.log('WordComponent :',chars)
         return (
@@ -31,12 +32,12 @@ class Word extends Component {
                         <View 
                             key={''+index}
                             style={{width:26,height:26,borderRadius:13,
-                                backgroundColor:this.defineColor(state),
+                                backgroundColor:show?GREEN:this.defineColor(state),
                                 justifyContent: 'center',alignItems:'center',marginLeft:3,
                                 marginTop:6}}>
                             
                             {
-                                state==='correct'?
+                                show || state==='correct'?
                                 <Text style={{fontSize:18,color:WHITE}}>
                                     {item}
                                 </Text>
@@ -53,12 +54,8 @@ class Word extends Component {
 }
 
 class Keyword extends Component {
-    defineColor=(round_is_solved)=>{
-        if (round_is_solved) return GREEN;
-        return SILVER;
-    }
     render(){
-        const {keyword}=this.props;
+        const {keyword,show}=this.props;
     //    const chars=[...keyword.toUpperCase()];
 
         const chars=[...keyword]
@@ -71,11 +68,11 @@ class Keyword extends Component {
                         <View 
                             key={''+index}
                             style={{width:26,height:26,borderRadius:5,
-                                backgroundColor:this.defineColor(true),
+                                backgroundColor:show?GREEN:SILVER,
                                 justifyContent: 'center',alignItems:'center',marginLeft:4,marginTop:6}}>
                             
                             {
-                                1===1?
+                                show?
                                 <Text style={{fontSize:18,color:WHITE}}>
                                     {item}
                                 </Text>
@@ -105,26 +102,20 @@ export default class CrosswordsModal extends Component{
         this.modal.close();
     }
 
-    defineColor=(item)=>{
-        switch (item.state){
-            case 'correct': return GREEN;
-            case 'wrong'  : return RED;
-            case 'current': return WHITE;
-            case 'remain' : return SILVER;
-        }
-    }
 
-    answerKeyword=(is_correct_keyword)=>{
-        if (is_correct_keyword) Alert.alert('Tu khoa dung')
-            else Alert.alert('Tu khoa sai');
+    onAnswerKeyword=(is_correct_keyword)=>{
+        console.log('crosswordModal onAnswer :',is_correct_keyword)
+        this.props.onAnswerKeyword(is_correct_keyword)
     }
 
     render(){
-        const {answers,keyword,states}=this.props;
+        let {answers,keyword,states,show_keyword,keyword_answered}=this.props;
 
         while (states.length<4) {
             states.push('remain')
         };
+
+
 
         console.log('Crossword Modals :',keyword,answers,states)
         return (
@@ -133,19 +124,33 @@ export default class CrosswordsModal extends Component{
                 position='center' 
                 ref={ref=>this.modal=ref} 
                 backdrop={true}
-                style={{width:'85%',height:360,borderRadius:5}}
+                style={{width:'90%',height:keyword_answered?250:400,borderRadius:5}}
                 isOpen={false}>
                 <View style={{flex:1,flexDirection:'column',alignItems:'center',
                     backgroundColor:INDIGO_2,
                     justifyContent:'flex-start'}}>
-                    <Keyword keyword={keyword}/>
+                    
+                    <View style={{width: '70%',marginTop:15,flexDirection:'row',justifyContent:'center'}}>
+                        <Keyword keyword={remove(keyword.toUpperCase()," ")} show={keyword_answered || show_keyword}/>
+                    </View>
+                   
                     {
-                    answers.map((item,index)=>(
-                        <Word  key={''+index} word={item} state={states[index]}/>
+                    answers.slice(0,4).map((item,index)=>(
+                        <Word  key={''+index} word={item} 
+                        show={keyword_answered}
+                        state={states[index]}/>
                     ))
                     }
 
-                    <AnswersInputComponent correct_answer={keyword} onAnswer={this.answerKeyword}/>
+
+                    {
+                        keyword_answered?
+                        null
+                        :
+                        <AnswersInputComponent correct_answer={keyword} onAnswer={this.onAnswerKeyword}/>
+                    }
+                    
+                    
                 </View>
             </Modal>
 

@@ -35,6 +35,7 @@ export default class AnswersInputComponent extends Component{
 
 
     answer=()=>{
+    //    if (this.state.answer==='') return ;
         let is_correct=this.state.answer.toLowerCase()===this.props.correct_answer.toLowerCase();
         setTimeout(()=>{
             this.setState({

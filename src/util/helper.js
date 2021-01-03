@@ -58,7 +58,14 @@ export const randomItem=(arr)=>{
     return arr[Math.floor(Math.random()*arr.length)]
 }
 
-
+export const remove=(str,str1)=>{
+    str=''+str;
+    str1=''+str1;
+    while (str.includes(str1)){
+        str=str.replace(str1,"");
+    };
+    return str
+}
 export const displayState=(state_code)=>{
     switch (state_code){
         case 'bidding':return 'Đang đấu giá';

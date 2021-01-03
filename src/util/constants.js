@@ -15,8 +15,9 @@ export const ROUNDS=[
     {
         index:2,
         name:'Vượt chướng ngại vật',
-        number_question:1,//4
+        number_question:5,//4
         max_score:120,
+        max_keyword_score:80,
         score:10,
         rule:'Cần tìm ra từ khóa với các gợi ý : \n    + Gồm bao nhiêu ký tự?\n    + Hình ảnh gợi ý. \n    + 4 từ hàng ngang (15s - 10đ ).Trả lời đúng, một góc của hình ảnh được mở ra.\n\n  Người chơi có trể trả lời chướng ngại vật ở hàng ngang :  \n    + Đầu tiên :80 điểm. \n    + Thứ hai  :60 điểm.\n    + Thứ ba   :40 điểm. \n    + Thứ tư   :20 điểm. \n\nTrả lời sai chướng ngại vật ,người chơi sẽ bị loại khỏi vòng chơi này.'
     },

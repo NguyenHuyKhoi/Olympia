@@ -11,7 +11,7 @@ const initial_state={}
 // questions_state : state of questions on current round ( on ['none','current','wrong','correct'])
 export default practiceReducer=(state=initial_state,action)=>{
     let payload=action.payload
-    let {cri,cqi,rounds,questions_state,scores,is_finished}=state;
+    let {cri,cqi,rounds,questions_state,scores}=state;
     switch (action.type){
         case practiceActions.GET_PRACTICE_ROUNDS:   
             return {
@@ -21,7 +21,8 @@ export default practiceReducer=(state=initial_state,action)=>{
                 cqi:0,
                 questions_state:['current'],
                 scores:[0,0,0,0],
-                is_finished:false
+                is_guessed_round2_keyword:false,
+                keyword_answered:false,
             }
 
         case practiceActions.ANSWER:
@@ -34,26 +35,48 @@ export default practiceReducer=(state=initial_state,action)=>{
             let total_question= ROUNDS[cri].number_question
             console.log('total question :',total_question);
 
-            if (cqi===total_question-1){
-                cqi=0;
-                is_finished=cri<3?false:true
-                cri=cri<3?cri+1:cri;
-                questions_state=[];
-                questions_state.push('current')
-
-                console.log('reset questions states :',questions_state)
-            }
-            else {
+            if (cqi<total_question-1){
                 cqi++;
-            }
+            
+            };
             return {
                 ...state,
-                cri,
                 cqi,
-                is_finished,
                 questions_state,
                 scores
         }
+
+        case practiceActions.NEXT_ROUND:
+
+            console.log('practiceReducer nextRound :',cri)
+            cqi=0;
+            cri++;
+            questions_state=[];
+            questions_state.push('current');
+
+            return {
+                ...state,
+                cqi,
+                cri,
+                questions_state
+            }
+
+
+
+        case practiceActions.ANSWER_KEYWORD:
+        
+            scores[1]+=payload.keyword_score;
+            //move to next round :3;
+
+            
+
+            return {
+                ...state,
+                scores,
+                keyword_answered:true
+
+            }
+
 
         case practiceActions.CHOOSE_ROUND4_QUESTIONS:
             rounds[3]=payload.round4;

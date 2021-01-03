@@ -24,9 +24,16 @@ import ResultComponent from '../../component/result.component';
 
 class PracticeResultScreen extends Component{
 
+    nextRound=()=>{
+        this.props.nextRound();
+        if (this.props.practice.cri===3) this.props.navigation.navigate('practice_home')
+        else this.props.navigation.navigate('practice_waiting')
+
+
+    }
 
     render(){
-        const {scores,is_finished}=this.props.practice
+        const {scores}=this.props.practice
         const time=convertFullDateToHour((new Date()).toISOString())
         return (
 			<View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
@@ -39,10 +46,7 @@ class PracticeResultScreen extends Component{
                 <ResultComponent scores={scores} time={time}/>
 
                 <ButtonComponent label='TIẾP' text_color={WHITE} background={GREEN} 
-                    onPress={()=>{
-                        if (is_finished) this.props.navigation.navigate('practice_home')
-                        else this.props.navigation.navigate('practice_waiting')
-                    }}
+                    onPress={this.nextRound}
                     margin_top={120}/>
                 
             </View>

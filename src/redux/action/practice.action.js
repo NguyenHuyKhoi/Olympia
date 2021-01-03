@@ -23,6 +23,21 @@ export const answer=(score)=>{
     }
 }
 
+export const nextRound=()=>{
+    return {
+        type:practiceActions.NEXT_ROUND,
+        payload:{}
+    }
+}
+
+export const answerKeyword=(keyword_score)=>{
+    console.log('choose option :',keyword_score);
+    return {
+        type:practiceActions.ANSWER_KEYWORD,
+        payload:{keyword_score}
+    }
+}
+
 export const chooseRound4Questions=(arr,picked_star)=>{
     console.log('chooseRound4Questions :',arr);
     return async (dispatch)=>{

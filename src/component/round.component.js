@@ -36,7 +36,7 @@ class RoundComponent extends Component{
 
     answer=(is_correct)=>{
 
-        const {cri,cqi,picked_star}=this.props.practice;
+        const {cri,cqi,picked_star,questions_state}=this.props.practice;
 
         let score=this.calculateScore()
         
@@ -47,13 +47,22 @@ class RoundComponent extends Component{
         else {
             if (is_correct) score=score;    
                 else score=0;
+        };
+
+
+        if (cri===1 && cqi===4) {
+            if (this.props.onAnswerKeyword!==undefined){
+                this.props.onAnswerKeyword(is_correct)
+            }
         }
-        this.props.answer(score);
-
-
-        if (cqi===ROUNDS[cri].number_question-1) 
+        else {
+            this.props.answer(score);
+            if (cqi===ROUNDS[cri].number_question-1) 
             if (cri<3) this.nextRound()
                 else this.viewResult();
+        }
+
+      
 
 
     }

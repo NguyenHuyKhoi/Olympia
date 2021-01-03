@@ -1177,6 +1177,10 @@
                     {
                         "answer": "Pháp",
                         "content": "\"Đất nước hình lục lăng\" là quốc gia nào? "
+                    },
+                    {
+                        "answer":"Italia",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1201,6 +1205,10 @@
                     {
                         "answer": "Đốt",
                         "content": "Tre là thực vật thân gỗ, họ Hòa thảo, thân chia thành nhiều ..."
+                    },
+                    {
+                        "answer":"Mía",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1225,6 +1233,10 @@
                     {
                         "answer": "4",
                         "content": "Hợp số nhỏ nhất là số tự nhiên nào?"
+                    },
+                    {
+                        "answer":"Sao Hỏa",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1249,6 +1261,10 @@
                     {
                         "answer": "Lê Lợi",
                         "content": "Người lên ngôi năm 1428, chấm dứt 20 năm đô hộ của giặc Minh"
+                    },
+                    {
+                        "answer":"Thanh Hóa",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1273,6 +1289,10 @@
                     {
                         "answer": "Linh kiện",
                         "content": ") Các thành phần cơ bản có thể ghép nối thành mạch điện tử hay thiết bị điện tử được gọi là gì?"
+                    },
+                    {
+                        "answer":"Tụ điện",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1297,6 +1317,10 @@
                     {
                         "answer": "Mặt trăng",
                         "content": "Vệ tinh tự nhiên duy nhất của Trái đất"
+                    },
+                    {
+                        "answer":"Nguyệt thực",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1321,6 +1345,10 @@
                     {
                         "answer": "Động lượng",
                         "content": "Đại lượng nào là tích số của khối lượng và vận tốc?"
+                    },
+                    {
+                        "answer":"Gió mậu dịch",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1345,6 +1373,10 @@
                     {
                         "answer": "1918",
                         "content": "Chiến tranh thế giới thứ nhất kết thúc vào năm nào?"
+                    },
+                    {
+                        "answer":"Nguyên Hồng",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1369,6 +1401,10 @@
                     {
                         "answer": "Di căn",
                         "content": "Hiện tượng những tế bào có khả năng xâm lấn những mô khác bằng cách phát triển trực tiếp vào mô lân cận hoặc di chuyển đến nơi xađược gọi là gì? "
+                    },
+                    {
+                        "answer":"Ung thư",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             },
@@ -1393,6 +1429,10 @@
                     {
                         "answer": "Hồ Xuân Hương",
                         "content": "Nhà thơ được mệnh danh \"Bà chúa thơ Nôm\""
+                    },
+                    {
+                        "answer":"Bánh trôi nước",
+                        "content":"Hãy trả lời từ khóa"
                     }
                 ]
             }
