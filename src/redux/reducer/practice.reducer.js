@@ -36,8 +36,8 @@ export default practiceReducer=(state=initial_state,action)=>{
 
             if (cqi===total_question-1){
                 cqi=0;
-                cri=cri<3?cri+1:cri;
                 is_finished=cri<3?false:true
+                cri=cri<3?cri+1:cri;
                 questions_state=[];
                 questions_state.push('current')
 
