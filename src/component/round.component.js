@@ -15,8 +15,8 @@ import * as actions from '../redux/action/practice.action'
 import { MAX_WIDTH, ROUNDS } from '../util/constants';
 import AnswersOptionComponent from './answers_option.component';
 import AnswerInputComponent from './answers_input.component'
+import CountdownTimerComponent from './countdown_timer.component';
 class RoundComponent extends Component{
-    
 
 
     calculateScore=()=>{
@@ -31,18 +31,33 @@ class RoundComponent extends Component{
             case 'medium':return ROUNDS[3].levels[1].score
             case 'hard':return ROUNDS[3].levels[2].score
         }
-
     };
+
+    componentDidMount=()=>{
+        if (this.timer!==undefined) this.timer.reset();
+    }
 
     answer=(is_correct)=>{
 
+
         const {cri,cqi,picked_star,questions_state}=this.props.practice;
 
+        if (cri!==0)  this.timer.pause();
         let score=this.calculateScore()
         
         if (cri===3 && picked_star===cqi){
             if (is_correct) score*=2;   
                 else score=-score;
+        }
+        else if (cri===2){
+            let time=this.timer.getTime();
+
+            console.log('GetAnswerTime :',time)
+            if (!is_correct)  score=0
+            else if (time>=20) score=40;
+            else if (time>=15) score=30
+            else if (time>10) score=20
+            else score=10
         }
         else {
             if (is_correct) score=score;    
@@ -57,12 +72,16 @@ class RoundComponent extends Component{
         }
         else {
             this.props.answer(score);
-            if (cqi===ROUNDS[cri].number_question-1) 
-            if (cri<3) this.nextRound()
-                else this.viewResult();
-        }
 
-      
+            console.log('XXXXXX :',cqi,cri)
+            if (cqi===ROUNDS[cri].number_question-1) {
+                this.timer.pause();
+                if (cri<3) this.nextRound()
+                    else this.viewResult();
+            }
+            else if (this.timer!==undefined && cri!==0) this.timer.reset();
+             
+        }
 
 
     }
@@ -74,11 +93,21 @@ class RoundComponent extends Component{
     viewResult=()=>{
         this.props.navigation.navigate('practice_result')
     }
+
+    onTimeOut=()=>{
+        let {cri} =this.props.practice;
+        if  (cri===0) {
+            this.props.navigation.navigate('practice_result')
+        }
+        else {
+            this.answer(false);
+        }
+    }
     render(){
 
         const {cri,cqi,rounds,questions_state}=this.props.practice
-
-       
+        const {duration}=this.props;
+        if (duration===undefined) duration=10;
         const round=rounds[cri]; 
         let question={};
         let questions_num=ROUNDS[cri].number_question
@@ -94,18 +123,21 @@ class RoundComponent extends Component{
 
         return (
             <View style={{flex:1, backgroundColor: INDIGO_3,flexDirection:'column',
+                paddingBottom:20,
                 alignItems:'center'}}>
          
-
+                <CountdownTimerComponent 
+                    ref={ref=>this.timer=ref}
+                    onTimeOut={()=>this.onTimeOut()}
+                    duration={duration}/>
                 
-                <View style={{width:MAX_WIDTH,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+                <View style={{width:MAX_WIDTH,flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginTop:15}}>
                     <Text style={{fontSize: 22,color:SILVER}}>
                         {'Câu '+(cqi+1)+'/'+(questions_num)}
                     </Text>
 
-                    <Text style={{fontSize: 22,color:SILVER}}>
-                        {'32s'}
-                    </Text>
+
+
                 </View>
                 <ProgressBarComponent states={questions_state} amount={questions_num}/>
 
@@ -136,4 +168,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps,actions)(RoundComponent)
+export default connect(mapStateToProps,actions,null,{forwardRef : true} )(RoundComponent)

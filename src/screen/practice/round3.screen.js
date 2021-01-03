@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
+import CountdownTimerComponent from '../../component/countdown_timer.component';
 
 
 import RoundComponent from '../../component/round.component';
+import { ROUNDS } from '../../util/constants';
 
 
 export default class PracticeRound3Screen extends Component{
@@ -9,7 +11,10 @@ export default class PracticeRound3Screen extends Component{
 
     render(){
         return (
-		    <RoundComponent
+
+            <RoundComponent
+                duration={ROUNDS[2].time}
+                ref={ref=>this.roundRef=ref}
                 navigation={this.props.navigation}/>
         )
     }

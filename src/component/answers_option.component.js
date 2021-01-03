@@ -22,7 +22,7 @@ export default class AnswersOptionComponent extends Component{
                 this['answer'+index].refresh();
             });
             this.props.onAnswer(is_correct)
-        },1000)
+        },500)
 
     }
     render(){

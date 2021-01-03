@@ -10,6 +10,7 @@ import {connect }from 'react-redux'
 import * as actions from '../../redux/action/practice.action'
 
 import STAR2 from '../../resource/image/star2.png'
+import { ROUNDS } from '../../util/constants';
 class PracticeRound4Screen extends Component{
 
 
@@ -19,11 +20,12 @@ class PracticeRound4Screen extends Component{
         return (
             <View style={{flex:1}}>
                 <RoundComponent
+                    duration={ROUNDS[3].time}
                     navigation={this.props.navigation}/>
                 {
                     cqi===picked_star?
                     <Image source={STAR2} 
-                        style={{width: 30,height: 30,position: 'absolute',top:50,right:20}}/>
+                        style={{width: 30,height: 30,position: 'absolute',top:65,right:20}}/>
                     :
                     null
                 }

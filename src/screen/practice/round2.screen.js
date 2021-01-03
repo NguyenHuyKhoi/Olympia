@@ -15,6 +15,7 @@ import {connect }from 'react-redux'
 import * as actions from '../../redux/action/practice.action'
 import { ROUNDS } from '../../util/constants';
 import ButtonComponent from '../../component/button.component';
+import CountdownTimerComponent from '../../component/countdown_timer.component';
 
 
 class PracticeRound2Screen extends Component{
@@ -39,7 +40,6 @@ class PracticeRound2Screen extends Component{
         this.props.answerKeyword(keyword_score);
         
     };
-
 
     render(){
 
@@ -89,7 +89,9 @@ class PracticeRound2Screen extends Component{
                 {
                     !keyword_answered?
                     <RoundComponent
-                    onAnswerKeyword={this.onAnswerKeyword}
+                        duration={ROUNDS[1].time}
+                        ref={ref=>this.roundRef=ref}
+                        onAnswerKeyword={this.onAnswerKeyword}
                         navigation={this.props.navigation}/>
                     :
 
