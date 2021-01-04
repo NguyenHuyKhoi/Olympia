@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import SoundPlayer from 'react-native-sound-player'
 import {
     Text,
     StyleSheet,
@@ -19,8 +19,19 @@ export default class CountdownTimerComponent extends Component{
         this.timeId=null
     };
 
+    // componentDidMount=()=>{
+    //     try {
+    //         // play the file tone.mp3
+    //         let ri=this.props.round_index+1;
+    //         SoundPlayer.loadSoundFile('round'+ri+'_play', 'mp3');
+    //     } catch (e) {
+    //         console.log(`cannot play the sound file`, e)
+    //     }
+    // }
+    
 
     pause=()=>{
+        SoundPlayer.stop();
         console.log('timer pause ')
         if (this.timeId){
             clearInterval(this.timeId);
@@ -33,7 +44,6 @@ export default class CountdownTimerComponent extends Component{
     };
     
     reset=()=>{
-       
         console.log('timer reset ')
         this.pause();
         this.setState({time:this.props.duration});
@@ -41,6 +51,8 @@ export default class CountdownTimerComponent extends Component{
     }
 
     loop=()=>{
+        SoundPlayer.loadSoundFile('round'+(this.props.round_index+1)+'_play', 'mp3');
+        SoundPlayer.play();
         this.timeId=setInterval(()=>{
             let t =this.state.time;
 
@@ -58,6 +70,10 @@ export default class CountdownTimerComponent extends Component{
         },1000)
     };
 
+
+    componentWillUnmount=()=>{
+        SoundPlayer.stop();
+    }
     render(){
         return (
             <View style={{position: 'absolute',top:15,right:30,zIndex:1}}>

@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import SoundPlayer from 'react-native-sound-player'
 import {
     View,
     Image,
@@ -51,14 +50,6 @@ class PracticeHistoryScreen extends Component{
             }
         });
 
-        try {
-            // play the file tone.mp3
-            SoundPlayer.loadSoundFile('test', 'mp3')
-            SoundPlayer.play();
-        } catch (e) {
-            console.log(`cannot play the sound file`, e)
-        }
-
 
         await this.setState({
             history:res
@@ -75,12 +66,6 @@ class PracticeHistoryScreen extends Component{
                 <Text style={{fontSize:25,color:SILVER,fontWeight:'bold',marginTop: 40}}>
                     LỊCH SỬ
                 </Text>
-
-                <ButtonComponent label='press' onPress ={()=>{
-                    SoundPlayer.play()
-                }}/>
-
-
                 <FlatList 
                     data={history}
                     keyExtractor={(item,index)=>''+index}

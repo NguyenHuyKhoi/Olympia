@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import SoundPlayer from 'react-native-sound-player'
 import {
     Alert,
     View 
@@ -13,8 +14,19 @@ export default class PracticeRound1Screen extends Component{
 
     onTimeOut=()=>{
         Alert.alert('time out');
+        SoundPlayer.stop();
         this.props.navigation.navigate('practice_result')
     }
+
+    // componentDidMount=()=>{
+    //     try {
+    //         // play the file tone.mp3
+    //         SoundPlayer.loadSoundFile('round1_play', 'mp3')
+    //         SoundPlayer.play();
+    //     } catch (e) {
+    //         console.log(`cannot play the sound file`, e)
+    //     }
+    // }
     render(){
 
         return (

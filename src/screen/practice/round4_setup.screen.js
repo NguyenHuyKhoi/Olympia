@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import SoundPlayer from 'react-native-sound-player'
 import {
     View,
     Text,
@@ -46,6 +46,8 @@ class QuestionPackage extends Component{
             level:this.props.default_level
         }
     }
+
+   
 
     pickStar=()=>{
         this.props.pickStar();
@@ -125,9 +127,24 @@ class Round4SetupScreen extends Component{
         this.props.chooseRound4Questions(this.state.arr,this.state.picked_star);
 
         setTimeout(()=>{
+            SoundPlayer.stop();
             this.props.navigation.navigate('practice_round4');
         },1000)
 
+    }
+
+    componentDidMount=()=>{
+        try {
+            // play the file tone.mp3
+            SoundPlayer.loadSoundFile('round4_choose', 'mp3')
+            SoundPlayer.play();
+        } catch (e) {
+            console.log(`cannot play the sound file`, e)
+        }
+    }
+
+    componentWillUnmount=()=>{
+        SoundPlayer.stop();
     }
 
     pickStar=(index)=>{

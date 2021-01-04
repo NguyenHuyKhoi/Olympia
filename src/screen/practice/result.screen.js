@@ -8,6 +8,9 @@ import {
     Text,
     FlatList
 } from 'react-native';
+
+import SoundPlayer from 'react-native-sound-player'
+
 import AllRoundSumComponent from '../../component/all_round_sum.component';
 import ButtonComponent from '../../component/button.component';
 import RoundScoreComponent from '../../component/round_score.component';
@@ -31,6 +34,7 @@ class PracticeResultScreen extends Component{
 
         console.log('resultScreen :',cri)
         if (cri<3) {
+            SoundPlayer.stop();
             this.props.nextRound();
             this.props.navigation.navigate('practice_waiting')
         }
@@ -45,6 +49,19 @@ class PracticeResultScreen extends Component{
         }
     }
 
+    componentDidMount=()=>{
+        try {
+            // play the file tone.mp3
+            SoundPlayer.loadSoundFile('end', 'mp3')
+            SoundPlayer.play();
+        } catch (e) {
+            console.log(`cannot play the sound file`, e)
+        }
+    }
+
+    componentWillUnmount=()=>{
+        SoundPlayer.stop();
+    }
     render(){
         const {scores}=this.props.practice
         const time=convertFullDateToHour((new Date()).toISOString())

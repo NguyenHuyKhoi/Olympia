@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import SoundPlayer from 'react-native-sound-player'
 import {
     View,
     Image,
@@ -17,7 +17,24 @@ import { ROUNDS } from '../../util/constants';
 
 class PracticeWaitingScreen extends Component{
 
+    componentDidMount=()=>{
+        try {
+            // play the file tone.mp3
+            SoundPlayer.loadSoundFile('start', 'mp3');
+            SoundPlayer.play();
+        } catch (e) {
+            console.log(`cannot play the sound file`, e)
+        }
+    }
+
+
+
+    componentWillUnmount=()=>{
+        SoundPlayer.stop();
+    }
+    
     render(){
+
         let {cri,questions_state}=this.props.practice;
         if (cri>3) cri=3
         const round=ROUNDS[cri]
@@ -37,6 +54,7 @@ class PracticeWaitingScreen extends Component{
 
 				<ButtonComponent label='Vào' text_color={SILVER} background={GREEN} 
 						onPress={()=>{
+                            SoundPlayer.stop();
                             if (cri!==3)
                                 this.props.navigation.navigate('practice_round'+(cri+1))
                             else 

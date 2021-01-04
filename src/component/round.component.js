@@ -9,7 +9,7 @@ import {
 import { GREEN, INDIGO_3, RED, SILVER, WHITE } from '../util/palette';
 import ProgressBarComponent from './progress_bar.component';
 import QuestionComponent from './question.component';
-
+import SoundPlayer from 'react-native-sound-player'
 import {connect }from 'react-redux'
 import * as actions from '../redux/action/practice.action'
 import { MAX_WIDTH, ROUNDS } from '../util/constants';
@@ -17,7 +17,6 @@ import AnswersOptionComponent from './answers_option.component';
 import AnswerInputComponent from './answers_input.component'
 import CountdownTimerComponent from './countdown_timer.component';
 class RoundComponent extends Component{
-
 
     calculateScore=()=>{
         const {cri,cqi,rounds}=this.props.practice;
@@ -38,7 +37,15 @@ class RoundComponent extends Component{
     }
 
     answer=(is_correct)=>{
+        // try {
+        //     // play the file tone.mp3
+        //     let file=is_correct?'correct':'wrong'
+        //     SoundPlayer.playSoundFile(file, 'mp3')
+        // } catch (e) {
 
+
+        //     console.log(`cannot play the sound file`, e)
+        // };
 
         const {cri,cqi,picked_star,questions_state}=this.props.practice;
 
@@ -79,7 +86,10 @@ class RoundComponent extends Component{
                 if (cri<3) this.nextRound()
                     else this.viewResult();
             }
-            else if (this.timer!==undefined && cri!==0) this.timer.reset();
+            else if (this.timer!==undefined && cri!==0) {
+                this.timer.reset();
+
+            }
              
         }
 
@@ -128,6 +138,7 @@ class RoundComponent extends Component{
          
                 <CountdownTimerComponent 
                     ref={ref=>this.timer=ref}
+                    round_index={cri}
                     onTimeOut={()=>this.onTimeOut()}
                     duration={duration}/>
                 
