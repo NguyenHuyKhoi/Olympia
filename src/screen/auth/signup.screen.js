@@ -98,7 +98,7 @@ export default class SignupScreen extends Component{
 
                 <ButtonComponent label='ĐĂNG KÝ' text_color={WHITE} background={GREEN} 
                     onPress={this.signup}
-                    margin_top={50}/>
+                    margin_top={!show_keyboard?50:20}/>
                 
                 {
                     !show_keyboard && 

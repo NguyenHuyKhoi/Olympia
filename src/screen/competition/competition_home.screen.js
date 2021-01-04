@@ -22,13 +22,13 @@ export default class CompetitionHomeScreen extends Component{
                 <HeaderComponent/>
 
 				<ButtonComponent label='Vào luôn !' text_color={SILVER} background={INDIGO_2} 
-						onPress={()=>Alert.alert('login')}/>
+						onPress={()=>{}}/>
                 <ButtonComponent label='Tạo trận' text_color={SILVER} background={INDIGO_2} 
-						onPress={()=>Alert.alert('login')}/>
+					    onPress={()=>{}}/>
                 <ButtonComponent label='Luật chơi' text_color={SILVER} background={INDIGO_2} 
-						onPress={()=>Alert.alert('login')}/>
+						onPress={()=>{}}/>
                 <ButtonComponent label='Lịch sử' text_color={SILVER} background={INDIGO_2} 
-						onPress={()=>Alert.alert('login')}/>
+					    onPress={()=>{}}/>
                 
                 <FooterComponent navigation={this.props.navigation}/>
             </View>

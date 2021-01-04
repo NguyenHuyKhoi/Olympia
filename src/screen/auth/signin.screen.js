@@ -108,7 +108,7 @@ class SigninScreen extends Component{
                      />
                 <ButtonComponent label='ĐĂNG NHẬP' text_color={WHITE} background={GREEN} 
                     onPress={this.signin}
-                    margin_top={50}/>
+                    margin_top={!show_keyboard?50:20}/>
                 
 
                 {
